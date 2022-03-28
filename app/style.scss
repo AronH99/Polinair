@@ -1,0 +1,26 @@
+@import url("https://unpkg.com/mvp.css");
+
+ul {
+  display: flex;
+  flex: 1 1 300px;
+  flex-wrap: wrap;
+  aside {
+    h3 {
+      border: 1px solid black;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      color: red;
+    }
+    article {
+      p:first-child {
+        font-weight: bold;
+        font-size: 18px;
+      }
+      border-bottom: 1px solid grey;
+      p {
+        text-align: left;
+      }
+    }
+  }
+}
