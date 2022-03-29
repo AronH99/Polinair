@@ -5,7 +5,7 @@ const Navbar = () => {
     <>
       <section class="Navbar">
         <h1>
-          Airquality
+          AirQuality
           <img src="./src/svg/pollen.svg" alt="SpringFlower" />
         </h1>
       </section>
