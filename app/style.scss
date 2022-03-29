@@ -1,5 +1,9 @@
 @import url("https://unpkg.com/mvp.css");
 
+h4 {
+  display: inline-block;
+}
+
 body {
   min-height: 1000px;
   background-image: url("./src/svg/navbar.svg");
@@ -99,13 +103,13 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
-  margin-left: -33px;
   ul {
     display: flex;
     flex-grow: 1;
     flex-shrink: 1;
     flex-wrap: wrap;
     justify-content: start;
+    margin-left: -33px;
     aside {
       background-color: rgb(110, 75, 23);
       border: 1px solid rgb(241, 149, 10);
