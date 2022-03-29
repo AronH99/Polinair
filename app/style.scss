@@ -1,15 +1,8 @@
 @import url("https://unpkg.com/mvp.css");
 
-h4 {
-  display: inline-block;
-}
-
 body {
   min-height: 1000px;
-  background-image: url("./src/svg/navbar.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 1;
+  background-color: rgb(241, 149, 10);
 }
 
 section {
@@ -132,6 +125,15 @@ section {
         }
       }
     }
+  }
+}
+
+.Location {
+  background-image: url("./src/svg/navbar.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  table {
+    margin-left: 25px;
   }
 }
 

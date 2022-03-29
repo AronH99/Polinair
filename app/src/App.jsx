@@ -4,6 +4,7 @@ import axios from "axios";
 import Navbar from "./components/Navbar";
 import Form from "./components/Form";
 import Body from "./components/Body";
+import Location from "./components/Location";
 import "../style.scss";
 
 const apiuitbreiding =
@@ -15,6 +16,8 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState(1);
   const [counter, setCounter] = useState("");
+  /*   const [lat, setLat] = useState("");
+  const [lon, setLon] = useState(""); */
 
   useEffect(() => {
     (async () => {
@@ -44,6 +47,7 @@ const App = () => {
         setCounter={setCounter}
         input={input}
       />
+      <Location /* lat={lat} lon={lon} setLat={setLat} setLon={setLon} */ />
       <Body standarddata={standarddata} error={error} loading={loading} />
     </>
   );
