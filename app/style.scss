@@ -42,8 +42,6 @@ section {
     h2 {
       color: white;
     }
-    input {
-    }
     button {
       margin-right: 10px;
       background-color: rgb(241, 149, 10);
@@ -101,6 +99,7 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
+  margin-left: -33px;
   ul {
     display: flex;
     flex-grow: 1;
@@ -132,11 +131,15 @@ section {
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 438px) {
+  form {
+    button {
+      padding: 0.5rem 1rem;
+    }
+  }
   .Body {
     ul {
       aside {
-        margin: 0rem;
         width: 260px;
         margin-top: 1rem;
       }
@@ -148,8 +151,7 @@ section {
   .Body {
     ul {
       aside {
-        margin: 0rem;
-        width: 200px;
+        width: 220px;
         margin-top: 1rem;
       }
     }
