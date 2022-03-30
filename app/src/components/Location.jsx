@@ -9,17 +9,23 @@ const Location = ({
   setLat,
   setLon,
 }) => {
-  useEffect(() => {
-    if (coords) {
-      setLat(coords.latitude);
-      setLon(coords.longitude);
-    }
-  }, [coords]);
+  !isGeolocationAvailable
+    ? alert("Your browser does not support Geolocation")
+    : !isGeolocationEnabled
+    ? alert("Geolocation is not enabled")
+    : useEffect(() => {
+        if (coords) {
+          setLat(coords.latitude);
+          setLon(coords.longitude);
+        }
+      }, [coords]);
 
-  return !isGeolocationAvailable ? (
-    <h3>Your browser does not support Geolocation</h3>
+  return null;
+
+  /* return !isGeolocationAvailable ? (
+    alert("Your browser does not support Geolocation")
   ) : !isGeolocationEnabled ? (
-    <h3>Geolocation is not enabled</h3>
+    alert("Geolocation is not enabled")
   ) : coords ? (
     <section className="Location">
       <table>
@@ -37,7 +43,7 @@ const Location = ({
     </section>
   ) : (
     ""
-  );
+  ); */
 };
 
 export default geolocated({

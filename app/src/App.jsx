@@ -17,8 +17,10 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState(1);
   const [counter, setCounter] = useState();
-  const [lat, setLat] = useState(51.22047);
-  const [lon, setLon] = useState(4.40026);
+  const [lat, setLat] = useState();
+  const [lon, setLon] = useState();
+  const [lat2, setLat2] = useState();
+  const [lon2, setLon2] = useState();
 
   useEffect(() => {
     (async () => {
@@ -26,7 +28,11 @@ const App = () => {
         setLoading(true);
         setError(false);
         const { data } = await axios(
-          `https://api.breezometer.com/pollen/v2/forecast/daily?lat=${lat}&lon=${lon}&key=8496f755e9fb4717970612a504b952f3&days=${input}`
+          `https://api.breezometer.com/pollen/v2/forecast/daily?lat=${
+            lat2 ? lat2 : lat
+          }&lon=${
+            lon2 ? lon2 : lon
+          }&key=8496f755e9fb4717970612a504b952f3&days=${input}`
         );
         setLoading(false);
         setError(false);
@@ -47,10 +53,16 @@ const App = () => {
         setInput={setInput}
         setCounter={setCounter}
         input={input}
-      />
+      >
+        <CityRequest
+          setLat2={setLat2}
+          setLon2={setLon2}
+          lon2={lon2}
+          lat2={lat2}
+        />
+      </Form>
       <Location setLat={setLat} setLon={setLon} />
       <Body standarddata={standarddata} error={error} loading={loading} />
-      {/* <CityRequest setLat={setLat} setLon={setLon} /> */}
     </>
   );
 };
