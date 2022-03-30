@@ -2,12 +2,25 @@
 
 body {
   min-height: 1000px;
-  background-color: rgb(241, 149, 10);
+  background-image: url("./src/svg/navbar.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 section {
   display: flex;
   justify-content: left;
+  background-image: url("./src/svg/navbar.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  .KopTekstBody {
+    padding-left: 26px;
+    color: white;
+    font-size: 23px;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+  }
 }
 
 .Navbar {
@@ -96,6 +109,15 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
+  .ErrorandLoading {
+    display: inline-block;
+    width: 100%;
+    font-size: 20px;
+    color: white;
+    margin-left: 26px;
+    padding-bottom: 0;
+    font-weight: bold;
+  }
   ul {
     display: flex;
     flex-grow: 1;
@@ -137,6 +159,30 @@ section {
   }
 }
 
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 100px;
+  color: white;
+  background-color: orange;
+  margin-top: 1%;
+  margin-left: 40%;
+  padding: 10px;
+  border-radius: 5px;
+  input {
+    padding-left: 5px;
+    font-size: 18px;
+    height: 30px;
+  }
+  button {
+    cursor: pointer;
+    width: 50px;
+    background-color: rgb(110, 75, 23) !important;
+  }
+}
+
 @media (max-width: 438px) {
   form {
     button {
@@ -144,21 +190,34 @@ section {
     }
   }
   .Body {
+    &error,
+    &loading {
+      background-image: url("./src/svg/navbar.svg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
     ul {
+      margin-left: -40px;
       aside {
         width: 260px;
         margin-top: 1rem;
+        width: 100%;
       }
     }
   }
 }
 
 @media (max-width: 392px) {
+  section {
+    width: 100%;
+  }
   .Body {
     ul {
+      margin-left: -40px;
       aside {
         width: 220px;
         margin-top: 1rem;
+        width: 100%;
       }
     }
   }

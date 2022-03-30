@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import axios from "axios";
+import CityRequest from "./Components/CityRequest";
 import Navbar from "./components/Navbar";
 import Form from "./components/Form";
 import Body from "./components/Body";
@@ -15,9 +16,9 @@ const App = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState(1);
-  const [counter, setCounter] = useState("");
-  /*   const [lat, setLat] = useState("");
-  const [lon, setLon] = useState(""); */
+  const [counter, setCounter] = useState();
+  const [lat, setLat] = useState(51.22047);
+  const [lon, setLon] = useState(4.40026);
 
   useEffect(() => {
     (async () => {
@@ -25,7 +26,7 @@ const App = () => {
         setLoading(true);
         setError(false);
         const { data } = await axios(
-          `https://api.breezometer.com/pollen/v2/forecast/daily?lat=51.177836&lon=4.341649&key=8496f755e9fb4717970612a504b952f3&days=${input}`
+          `https://api.breezometer.com/pollen/v2/forecast/daily?lat=${lat}&lon=${lon}&key=8496f755e9fb4717970612a504b952f3&days=${input}`
         );
         setLoading(false);
         setError(false);
@@ -47,8 +48,9 @@ const App = () => {
         setCounter={setCounter}
         input={input}
       />
-      <Location /* lat={lat} lon={lon} setLat={setLat} setLon={setLon} */ />
+      <Location setLat={setLat} setLon={setLon} />
       <Body standarddata={standarddata} error={error} loading={loading} />
+      {/* <CityRequest setLat={setLat} setLon={setLon} /> */}
     </>
   );
 };
