@@ -5,8 +5,11 @@ const Body = ({ standarddata, error, loading }) => {
     <>
       {standarddata.data.length > 0 && (
         <section class="Body">
-          {error && <p>Error !!!</p>}
-          {loading && <p>Loading....</p>}
+          <h3 className="KopTekstBody">Pollen Data of Antwerp (Belgium)</h3>
+          <div className="ErrorandLoading">
+            {error && <p>Error !!!</p>}
+            {loading && <p>Loading....</p>}
+          </div>
           <ul>
             {standarddata.data.map(({ date, types: { tree, weed, grass } }) => (
               <aside key={date}>
