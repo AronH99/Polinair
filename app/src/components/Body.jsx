@@ -5,7 +5,7 @@ const Body = ({ standarddata, error, loading }) => {
     <>
       {standarddata.data.length > 0 && (
         <section class="Body">
-          <h3 className="KopTekstBody">Pollen Data of Antwerp (Belgium)</h3>
+          <h3 className="KopTekstBody">Pollen Data of Your Location</h3>
           <div className="ErrorandLoading">
             {error && <p>Error !!!</p>}
             {loading && <p>Loading....</p>}

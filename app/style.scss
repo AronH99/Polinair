@@ -1,5 +1,17 @@
 @import url("https://unpkg.com/mvp.css");
 
+.flex {
+  display: flex;
+  background-image: url("./src/svg/navbar.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  .form2 {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    height: auto;
+  }
+}
 body {
   min-height: 1000px;
   background-image: url("./src/svg/navbar.svg");
@@ -45,10 +57,11 @@ section {
   background-image: url("./src/svg/navbar.svg");
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 15px;
   form {
-    border: none;
     outline: none;
     box-shadow: none;
+    border: none;
     h2 {
       color: white;
     }
@@ -154,6 +167,7 @@ section {
   background-image: url("./src/svg/navbar.svg");
   background-size: cover;
   background-repeat: no-repeat;
+  padding-top: 20px;
   table {
     margin-left: 25px;
   }
@@ -161,16 +175,18 @@ section {
 
 .box {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 300px;
-  height: 100px;
+  flex-wrap: wrap;
+  flex: 1 1 300px;
+  height: auto;
   color: white;
   background-color: orange;
-  margin-top: 1%;
-  margin-left: 40%;
+  margin-left: 14px;
+  margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
+  background-image: url("./src/svg/navbar.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
   input {
     padding-left: 5px;
     font-size: 18px;
@@ -178,8 +194,20 @@ section {
   }
   button {
     cursor: pointer;
-    width: 50px;
-    background-color: rgb(110, 75, 23) !important;
+    width: 100px;
+    background-color: rgb(110, 75, 23);
+  }
+}
+
+@media (max-width: 763px) {
+  .flex {
+    margin-top: 0;
+    padding-top: 0;
+    .form2 {
+      height: auto;
+      margin-top: 0;
+      padding-top: 0;
+    }
   }
 }
 
@@ -220,5 +248,11 @@ section {
         width: 100%;
       }
     }
+  }
+}
+
+@media (max-width: 330px) {
+  :root {
+    --width-card: none;
   }
 }

@@ -1,40 +1,46 @@
 import React from "react";
 
-const Form = ({ counter, setInput, setCounter }) => {
+const Form = ({ counter, setInput, setCounter, children }) => {
   return (
     <>
-      <section class="Form">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setInput(counter);
-            setCounter("");
-          }}
-        >
-          <h2>Dagen</h2>
-          <button
-            onClick={() => {
-              setCounter(1);
+      <div className="flex">
+        <section class="Form">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              setInput(counter);
+              setCounter("");
             }}
           >
-            1 Day
-          </button>
-          <button
-            onClick={() => {
-              setCounter(2);
-            }}
-          >
-            2 Days
-          </button>
-          <button
-            onClick={() => {
-              setCounter(3);
-            }}
-          >
-            3 Days
-          </button>
-        </form>
-      </section>
+            <h2>Select Days</h2>
+            <button
+              onClick={() => {
+                setInput("");
+                setCounter(1);
+              }}
+            >
+              1 Day
+            </button>
+            <button
+              onClick={() => {
+                setInput("");
+                setCounter(2);
+              }}
+            >
+              2 Days
+            </button>
+            <button
+              onClick={() => {
+                setInput("");
+                setCounter(3);
+              }}
+            >
+              3 Days
+            </button>
+          </form>
+          {children}
+        </section>
+      </div>
     </>
   );
 };
