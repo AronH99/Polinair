@@ -1,14 +1,15 @@
 import React from "react";
 
-const Body = ({ standarddata, error, loading }) => {
+const Body = ({ standarddata, error, loading, chosenCity }) => {
   return (
     <>
       {standarddata.data.length > 0 && (
         <section class="Body">
-          <h3 className="KopTekstBody">Pollen Data of Your Location</h3>
+          <h3 className="KopTekstBody">Pollen Data</h3>
           <div className="ErrorandLoading">
             {error && <p>Error !!!</p>}
             {loading && <p>Loading....</p>}
+            <h3>{chosenCity ? chosenCity : "Your Location's Data"}</h3>
           </div>
           <ul>
             {standarddata.data.map(({ date, types: { tree, weed, grass } }) => (
