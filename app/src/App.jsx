@@ -21,6 +21,9 @@ const App = () => {
   const [lon, setLon] = useState();
   const [lat2, setLat2] = useState();
   const [lon2, setLon2] = useState();
+  const [chosenCity, setChosenCity] = useState();
+  const [input2, setInput2] = useState("");
+  const [city, setCity] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -43,7 +46,7 @@ const App = () => {
         setStandardData({ data: [] });
       }
     })();
-  }, [input]);
+  }, [input, input2, chosenCity]);
 
   return (
     <>
@@ -59,10 +62,24 @@ const App = () => {
           setLon2={setLon2}
           lon2={lon2}
           lat2={lat2}
+          setError={setError}
+          error={error}
+          setChosenCity={setChosenCity}
+          input2={input2}
+          setInput2={setInput2}
+          city={city}
+          setCity={setCity}
+          lat={lat}
+          lon={lon}
         />
       </Form>
       <Location setLat={setLat} setLon={setLon} />
-      <Body standarddata={standarddata} error={error} loading={loading} />
+      <Body
+        standarddata={standarddata}
+        error={error}
+        loading={loading}
+        chosenCity={chosenCity}
+      />
     </>
   );
 };

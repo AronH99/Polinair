@@ -10,6 +10,36 @@
     outline: none;
     box-shadow: none;
     height: auto;
+    .flex2 {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      align-items: center;
+    }
+    button {
+      display: flex;
+      align-items: center;
+      width: auto;
+      height: 20px;
+      margin-top: -1px;
+      &:disabled {
+        border: 1px solid #999999;
+        background-color: darkgrey;
+        color: #fff;
+        cursor: not-allowed;
+      }
+    }
+    input {
+      margin-top: 7px;
+      border: 2px solid rgb(110, 75, 23);
+      outline: none;
+      &:hover,
+      &:active,
+      &focus {
+        box-shadow: inset 0 0 0.2em rgb(241, 149, 10),
+          0 0 0.2em rgb(241, 149, 10);
+      }
+    }
   }
 }
 body {
@@ -39,6 +69,8 @@ section {
   background-image: url("./src/svg/navbar.svg");
   background-size: cover;
   background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
   h1 {
     color: white;
     display: flex;
@@ -212,9 +244,11 @@ section {
 }
 
 @media (max-width: 438px) {
-  form {
-    button {
-      padding: 0.5rem 1rem;
+  .Form {
+    form {
+      button {
+        padding: 0.5rem 1rem;
+      }
     }
   }
   .Body {
@@ -233,12 +267,16 @@ section {
       }
     }
   }
+  .form2 {
+    .flex2 {
+      .errorbutton {
+        padding: 1rem 2rem;
+      }
+    }
+  }
 }
 
 @media (max-width: 392px) {
-  section {
-    width: 100%;
-  }
   .Body {
     ul {
       margin-left: -40px;
@@ -251,8 +289,11 @@ section {
   }
 }
 
-@media (max-width: 330px) {
+@media (max-width: 335px) {
   :root {
     --width-card: none;
+  }
+  .Navbar {
+    padding-right: 26px;
   }
 }
