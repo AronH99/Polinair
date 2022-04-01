@@ -1,0 +1,97 @@
+@import url("https://unpkg.com/mvp.css");
+
+.interfaceflex {
+  display: flex;
+  background-image: url("./src/svg/navbar.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+  
+body {
+  min-height: 1000px;
+  background-image: url("./src/svg/navbar.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+section {
+  background-image: url("./src/svg/navbar.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 775px){
+  .interfaceflex{
+    display:flex;
+   flex-direction: column !important;
+  .Form{
+  form{
+       }
+    }
+  }
+}
+@media (max-width: 763px) {
+  .flex {
+    margin-top: 0;
+    padding-top: 0;
+    .form2 {
+      height: auto;
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+}
+
+
+@media (max-width: 438px) {
+  .Form {
+    form {
+      padding:0;
+      button {
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+  .Body {
+    &error,
+    &loading {
+      background-image: url("./src/svg/navbar.svg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    ul {
+      margin-left: -40px;
+      aside {
+        width: 260px;
+        margin-top: 1rem;
+        width: 100%;
+      }
+    }
+  }
+  .form2 {
+    .flex2 {
+      .errorbutton {
+        padding: 1rem 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 392px) {
+  .Body {
+    ul {
+      margin-left: -40px;
+      aside {
+        width: 220px;
+        margin-top: 1rem;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 335px) {
+  :root {
+    --width-card: none;
+  }
+}

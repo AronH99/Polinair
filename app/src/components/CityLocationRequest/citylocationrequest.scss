@@ -1,0 +1,36 @@
+.form2 {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    height: auto;
+    .flex2 {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      align-items: center;
+    }
+    button {
+      display: flex;
+      align-items: center;
+      width: auto;
+      height: 20px;
+      margin-top: -1px;
+      &:disabled {
+        border: 1px solid #999999;
+        background-color: darkgrey;
+        color: #fff;
+        cursor: not-allowed;
+      }
+    }
+    input {
+      margin-top: 7px;
+      border: 2px solid rgb(110, 75, 23);
+      outline: none;
+      &:hover,
+      &:active,
+      &focus {
+        box-shadow: inset 0 0 0.2em rgb(241, 149, 10),
+          0 0 0.2em rgb(241, 149, 10);
+      }
+    }
+  }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./citylocationrequest.scss";
 
 const API_KEY =
   "pk.eyJ1IjoiYXJvbjY0IiwiYSI6ImNsMWRiZW1hbDAwenkzaW1sZWJwZzFuaXEifQ.UiBcP8NENwG_jH_nzAH48w";
@@ -7,19 +8,15 @@ const API_KEY =
 const CityRequest = ({
   setLat2,
   setLon2,
-  lon2,
-  lat2,
-  setError,
-  error,
   setChosenCity,
-  input2,
-  setInput2,
-  city,
-  setCity,
+  chosenCity,
   lat,
   lon,
-  chosenCity,
 }) => {
+  const [formerror, setFormerror] = useState(false);
+  const [input2, setInput2] = useState("");
+  const [city, setCity] = useState("");
+
   useEffect(() => {
     (async function getCoordinates() {
       axios(
@@ -32,8 +29,6 @@ const CityRequest = ({
           setLat2(lat);
           setLon2(lon);
         }
-        console.log(lon2, lat2);
-        console.log("uitgevoerd");
       });
     })();
   }, [chosenCity]);
@@ -43,27 +38,27 @@ const CityRequest = ({
       className="form2"
       onSubmit={(e) => {
         e.preventDefault();
-        if (city.length < 4) {
-          setError(false);
+        if (chosenCity?.length < 4) {
           setChosenCity();
           setInput2("");
+          setFormerror(true);
         } else {
-          setError(false);
           setChosenCity(city);
           setInput2(city);
+          setFormerror(false);
         }
       }}
     >
       <h2>Enter a city name : {input2}</h2>
-      <div class="flex2">
+      <div className="flex2">
         <input
           type="text"
           onChange={(e) => {
             setCity(e.target.value);
           }}
-          className={error ? "error" : ""}
+          className={formerror ? "error" : ""}
         />
-        <button className="errorbutton" disabled={error}>
+        <button className="errorbutton" disabled={formerror}>
           Go
         </button>
       </div>

@@ -1,20 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import "./navbar.scss";
 
 const Navbar = () => {
   return (
     <>
-      <section class="Navbar">
+      <section className="Navbar">
         <h1>
           AirQuality
           <img src="./src/svg/pollen.svg" alt="SpringFlower" />
         </h1>
-        {/*  <li>
-          <Link to="/">Body</Link>
-        </li>
-        <li>
-          <Link to="/Test">Test</Link>
-        </li> */}
       </section>
     </>
   );
