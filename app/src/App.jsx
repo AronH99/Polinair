@@ -49,6 +49,7 @@ const App = () => {
           setLat2={setLat2}
           setLon2={setLon2}
           setChosenCity={setChosenCity}
+          chosenCity={chosenCity}
           lat={lat}
           lon={lon}
         />
