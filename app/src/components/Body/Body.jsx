@@ -1,11 +1,12 @@
 import React from "react";
+import "./body.scss";
 
 const Body = ({ standarddata, error, loading, chosenCity }) => {
   return (
     <>
       {standarddata.data.length > 0 && (
-        <section class="Body">
-          <h3 className="KopTekstBody">Pollen Data</h3>
+        <section className="Body">
+          <h3 className="HeadingBody">Pollen Data</h3>
           <div className="ErrorandLoading">
             {error && <p>Error !!!</p>}
             {loading && <p>Loading....</p>}

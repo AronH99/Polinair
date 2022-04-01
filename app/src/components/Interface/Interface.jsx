@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import "./interface.scss";
 
-const Form = ({ counter, setInput, setCounter, children }) => {
+const Form = ({ setInput, children }) => {
+  const [counter, setCounter] = useState();
   return (
     <>
-      <div className="flex">
-        <section class="Form">
+      <div className="interfaceflex">
+        <section className="Form">
           <form
             onSubmit={(e) => {
               e.preventDefault();
