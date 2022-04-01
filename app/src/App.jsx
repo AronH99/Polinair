@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import React from "react";
 import axios from "axios";
 import CityRequest from "./Components/CityRequest";
 import Navbar from "./components/Navbar";
 import Form from "./components/Form";
 import Body from "./components/Body";
+import Test from "./components/Test";
 import Location from "./components/Location";
 import "../style.scss";
 
@@ -31,11 +33,7 @@ const App = () => {
         setLoading(true);
         setError(false);
         const { data } = await axios(
-          `https://api.breezometer.com/pollen/v2/forecast/daily?lat=${
-            lat2 ? lat2 : lat
-          }&lon=${
-            lon2 ? lon2 : lon
-          }&key=8496f755e9fb4717970612a504b952f3&days=${input}`
+          `https://api.breezometer.com/pollen/v2/forecast/daily?lat=${lat2}&lon=${lon2}&key=8496f755e9fb4717970612a504b952f3&days=${input}`
         );
         setLoading(false);
         setError(false);
@@ -46,10 +44,17 @@ const App = () => {
         setStandardData({ data: [] });
       }
     })();
-  }, [input, input2, chosenCity]);
+  }, [input, lat2, lon2]);
 
   return (
     <>
+      {/*  <BrowserRouter>
+        <Navbar />
+        <Switch>
+          <Route path="/" element={<Body />} />
+          <Route path="/Test" element={<Test />} />
+        </Switch>
+      </BrowserRouter> */}
       <Navbar />
       <Form
         counter={counter}
@@ -71,6 +76,7 @@ const App = () => {
           setCity={setCity}
           lat={lat}
           lon={lon}
+          chosenCity={chosenCity}
         />
       </Form>
       <Location setLat={setLat} setLon={setLon} />
