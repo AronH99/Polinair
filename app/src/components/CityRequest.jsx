@@ -18,11 +18,12 @@ const CityRequest = ({
   setCity,
   lat,
   lon,
+  chosenCity,
 }) => {
   useEffect(() => {
     (async function getCoordinates() {
       axios(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${API_KEY}`
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${chosenCity}.json?access_token=${API_KEY}`
       ).then((res) => {
         if (res.data.features.length > 0) {
           setLon2(res.data.features[0].geometry.coordinates[0]);
@@ -32,9 +33,10 @@ const CityRequest = ({
           setLon2(lon);
         }
         console.log(lon2, lat2);
+        console.log("uitgevoerd");
       });
     })();
-  }, [city]);
+  }, [chosenCity]);
 
   return (
     <form
@@ -42,8 +44,9 @@ const CityRequest = ({
       onSubmit={(e) => {
         e.preventDefault();
         if (city.length < 4) {
-          setError(true);
+          setError(false);
           setChosenCity();
+          setInput2("");
         } else {
           setError(false);
           setChosenCity(city);
@@ -57,8 +60,6 @@ const CityRequest = ({
           type="text"
           onChange={(e) => {
             setCity(e.target.value);
-            setError(false);
-            setInput2("");
           }}
           className={error ? "error" : ""}
         />

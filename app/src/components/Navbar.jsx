@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -8,6 +9,12 @@ const Navbar = () => {
           AirQuality
           <img src="./src/svg/pollen.svg" alt="SpringFlower" />
         </h1>
+        {/*  <li>
+          <Link to="/">Body</Link>
+        </li>
+        <li>
+          <Link to="/Test">Test</Link>
+        </li> */}
       </section>
     </>
   );
