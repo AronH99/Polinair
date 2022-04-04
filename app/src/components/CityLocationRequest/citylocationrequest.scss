@@ -8,6 +8,16 @@
       gap: 5px;
       justify-content: center;
       align-items: center;
+      .loadingp{
+        display: flex;
+        justify-content:center;
+        align-self: center;
+        align-items: center;
+        color: white;
+        margin-left: 18px;
+        font-size: 20px;
+        font-weight: bold;
+      }
     }
     button {
       display: flex;
