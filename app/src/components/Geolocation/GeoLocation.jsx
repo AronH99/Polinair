@@ -1,7 +1,7 @@
 import { geolocated } from "react-geolocated";
 import { useEffect } from "react";
 
-const Location = ({
+const GeoLocation = ({
   isGeolocationAvailable,
   isGeolocationEnabled,
   coords,
@@ -29,4 +29,4 @@ export default geolocated({
     enableHighAccuracy: false,
   },
   userDecisionTimeout: 5000,
-})(Location);
+})(GeoLocation);

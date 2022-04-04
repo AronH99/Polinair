@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./interface.scss";
 
-const Form = ({ setInput, children }) => {
+const Form = ({ setDays, children }) => {
   const [counter, setCounter] = useState();
   return (
     <>
@@ -10,14 +10,14 @@ const Form = ({ setInput, children }) => {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              setInput(counter);
+              setDays(counter);
               setCounter("");
             }}
           >
             <h2>Select Days</h2>
             <button
               onClick={() => {
-                setInput("");
+                setDays("");
                 setCounter(1);
               }}
             >
@@ -25,7 +25,7 @@ const Form = ({ setInput, children }) => {
             </button>
             <button
               onClick={() => {
-                setInput("");
+                setDays("");
                 setCounter(2);
               }}
             >
@@ -33,7 +33,7 @@ const Form = ({ setInput, children }) => {
             </button>
             <button
               onClick={() => {
-                setInput("");
+                setDays("");
                 setCounter(3);
               }}
             >

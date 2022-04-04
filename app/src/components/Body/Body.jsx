@@ -1,17 +1,20 @@
 import React from "react";
 import "./body.scss";
 
-const Body = ({ standarddata, error, loading, chosenCity }) => {
+const Body = ({ standarddata, error, loading, chosenCity, input }) => {
   return (
     <>
-      {standarddata.data.length > 0 && (
+      <section className="Body">
+        <h3 className="pollentitle">
+          Pollen Data - {input ? input : "Your Location's Data"}
+        </h3>
+        <div className="ErrorandLoading">
+          {error && <p>Error !!!</p>}
+          {loading && <p>Loading....</p>}
+        </div>
+      </section>
+      {standarddata?.data.length > 0 && (
         <section className="Body">
-          <h3 className="HeadingBody">Pollen Data</h3>
-          <div className="ErrorandLoading">
-            {error && <p>Error !!!</p>}
-            {loading && <p>Loading....</p>}
-            <h3>{chosenCity ? chosenCity : "Your Location's Data"}</h3>
-          </div>
           <ul>
             {standarddata.data.map(({ date, types: { tree, weed, grass } }) => (
               <aside key={date}>
