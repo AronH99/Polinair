@@ -11,31 +11,30 @@ const Form = ({ setDays, children }) => {
             onSubmit={(e) => {
               e.preventDefault();
               setDays(counter);
-              setCounter("");
             }}
           >
             <h2>Select Days</h2>
             <button
               onClick={() => {
-                setDays("");
                 setCounter(1);
               }}
+              className={`interfacebutton${counter === 1 ? "__toggle" : ""}`}
             >
               1 Day
             </button>
             <button
               onClick={() => {
-                setDays("");
                 setCounter(2);
               }}
+              className={`interfacebutton${counter === 2 ? "__toggle" : ""}`}
             >
               2 Days
             </button>
             <button
               onClick={() => {
-                setDays("");
                 setCounter(3);
               }}
+              className={`interfacebutton${counter === 3 ? "__toggle" : ""}`}
             >
               3 Days
             </button>
