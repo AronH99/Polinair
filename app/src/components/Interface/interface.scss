@@ -1,8 +1,9 @@
+.interfaceflex {
+  display: flex;
+  background-image: url("./src/svg/navbar.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
 .Form {
-    background-image: url("./src/svg/navbar.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 15px;
     form {
       outline: none;
       box-shadow: none;
@@ -69,4 +70,4 @@
       }
     }
   }
-  
+}

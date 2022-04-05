@@ -5,7 +5,7 @@ import "./citylocationrequest.scss";
 const API_KEY =
   "pk.eyJ1IjoiYXJvbjY0IiwiYSI6ImNsMWRiZW1hbDAwenkzaW1sZWJwZzFuaXEifQ.UiBcP8NENwG_jH_nzAH48w";
 
-const CityRequest = ({ setLat, setLon, setInput, input }) => {
+const CityLocationRequest = ({ setLat, setLon, setInput, input }) => {
   const [formerror, setFormerror] = useState(false);
   const [city, setCity] = useState();
   const [chosenCity, setChosenCity] = useState();
@@ -68,4 +68,4 @@ const CityRequest = ({ setLat, setLon, setInput, input }) => {
   );
 };
 
-export default CityRequest;
+export default CityLocationRequest;
