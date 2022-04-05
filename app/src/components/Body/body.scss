@@ -3,6 +3,8 @@
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
+    margin-top: 0 !important;
+    padding-top: 0;
     .pollentitle{
       padding-left: 26px;
       color: white;
@@ -10,6 +12,7 @@
       display: block;
       width: 100%;
       margin-bottom: 0;
+      margin-top: 1rem;
 }
     .HeadingBody {
       padding-left: 26px;
@@ -18,6 +21,7 @@
       display: block;
       width: 100%;
       margin-bottom: 0;
+      margin-top: 1rem;
     }
     .ErrorandLoading {
       display: inline-block;
@@ -35,6 +39,7 @@
       flex-wrap: wrap;
       justify-content: start;
       margin-left: -33px;
+      margin-top: 0;
       aside {
         background-color: rgb(110, 75, 23);
         border: 1px solid rgb(241, 149, 10);

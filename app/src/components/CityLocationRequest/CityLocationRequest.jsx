@@ -60,7 +60,7 @@ const CityRequest = ({ setLat, setLon, setInput, input }) => {
             }
           }}
         />
-        <button className="errorbutton" disabled={formerror}>
+        <button className="citybutton" disabled={formerror}>
           Go
         </button>
       </div>

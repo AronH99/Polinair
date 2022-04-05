@@ -1,5 +1,7 @@
 @import url("https://unpkg.com/mvp.css");
 
+
+
 .interfaceflex {
   display: flex;
   background-image: url("./src/svg/navbar.svg");
@@ -20,16 +22,13 @@ section {
   background-repeat: no-repeat;
 }
 
-@media (max-width: 775px){
-  .interfaceflex{
-    display:flex;
-   flex-direction: column !important;
-  .Form{
-  form{
-       }
-    }
-  }
+form{
+padding-left: 1.5rem;
+padding-bottom: 0.5rem;
+padding-top: 0.5rem;
+padding-right: 0.5rem;
 }
+
 @media (max-width: 763px) {
   .flex {
     margin-top: 0;
@@ -44,13 +43,16 @@ section {
 
 
 @media (max-width: 438px) {
+  .interfaceflex{
+    margin-left:26px;
   .Form {
     form {
       padding:0;
       button {
-        padding: 0.5rem 1rem;
+        padding: 1rem 2rem;
       }
     }
+  }
   }
   .Body {
     &error,
