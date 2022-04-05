@@ -1,7 +1,7 @@
 import React from "react";
 import "./body.scss";
 
-const Body = ({ standarddata, error, loading, chosenCity, input }) => {
+const Body = ({ standarddata, error, loading, input }) => {
   return (
     <>
       <section className="Body">

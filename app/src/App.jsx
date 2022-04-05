@@ -1,11 +1,12 @@
 import { useState, useEffect, React } from "react";
 import useAxios from "axios-hooks";
-import CityRequest from "./components/CityLocationRequest/CityLocationRequest";
+import CityLocationRequest from "./components/CityLocationRequest/CityLocationRequest";
 import Navbar from "./components/Navbar/Navbar";
 import Form from "./components/Interface/Interface";
 import Body from "./components/Body/Body";
 import GeoLocation from "./components/Geolocation/GeoLocation";
 import RadioButton from "./components/RadioButton/RadioButton";
+import Map from "./components/Map/Map";
 import "./style.scss";
 
 const apiuitbreiding =
@@ -39,7 +40,7 @@ const App = () => {
       />
       <Form setDays={setDays}>
         {!locationbool && (
-          <CityRequest
+          <CityLocationRequest
             setLat={setLat}
             setLon={setLon}
             setInput={setInput}
@@ -48,6 +49,7 @@ const App = () => {
         )}
       </Form>
       {locationbool && <GeoLocation setLat={setLat} setLon={setLon} />}
+      <Map />
       <Body
         error={error}
         loading={loading}
