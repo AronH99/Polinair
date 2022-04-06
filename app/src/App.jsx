@@ -2,10 +2,10 @@ import { useState, useEffect, React } from "react";
 import useAxios from "axios-hooks";
 import CityLocationRequest from "./components/CityLocationRequest/CityLocationRequest";
 import Navbar from "./components/Navbar/Navbar";
-import Form from "./components/Interface/Interface";
-import Body from "./components/Body/Body";
+import SelectDays from "./components/SelectDays/SelectDays";
+import InformationCards from "./components/InformationCards/InformationCards";
 import GeoLocation from "./components/Geolocation/GeoLocation";
-import RadioButton from "./components/RadioButton/RadioButton";
+import SelectMethodLocation from "./components/SelectMethodLocation/SelectMethodLocation";
 import Map from "./components/Map/Map";
 import "./style.scss";
 
@@ -13,7 +13,7 @@ const apiuitbreiding =
   "https://api.breezometer.com/pollen/v2/forecast/daily?lat=48.857456&lon=2.354611&days=3&key=8496f755e9fb4717970612a504b952f3&features=types_information,plants_information";
 
 const App = () => {
-  const [days, setDays] = useState(1);
+  const [days, setDays] = useState(3);
   const [lat, setLat] = useState();
   const [lon, setLon] = useState();
   const [input, setInput] = useState("");
@@ -33,12 +33,12 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <RadioButton
+      <SelectMethodLocation
         setLocationbool={setLocationbool}
         locationbool={locationbool}
         setInput={setInput}
       />
-      <Form setDays={setDays}>
+      <SelectDays setDays={setDays}>
         {!locationbool && (
           <CityLocationRequest
             setLat={setLat}
@@ -47,10 +47,10 @@ const App = () => {
             input={input}
           />
         )}
-      </Form>
+      </SelectDays>
       {locationbool && <GeoLocation setLat={setLat} setLon={setLon} />}
       <Map />
-      <Body
+      <InformationCards
         error={error}
         loading={loading}
         standarddata={standarddata}

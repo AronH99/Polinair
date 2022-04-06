@@ -1,7 +1,7 @@
 import { React, useState } from "react";
-import "./radiobutton.scss";
+import "./selectmethodlocation.scss";
 
-const RadioButton = ({ setLocationbool, locationbool, setInput }) => {
+const SelectMethodLocation = ({ setLocationbool, locationbool, setInput }) => {
   const [radiobutton, setRadiobutton] = useState();
   const handleChange = (e) => {
     const target = e.target;
@@ -20,7 +20,6 @@ const RadioButton = ({ setLocationbool, locationbool, setInput }) => {
             e.preventDefault();
           }}
         >
-          <p>Select Location</p>
           <label htmlFor="yourlocation">
             <input
               type="radio"
@@ -49,4 +48,4 @@ const RadioButton = ({ setLocationbool, locationbool, setInput }) => {
   );
 };
 
-export default RadioButton;
+export default SelectMethodLocation;

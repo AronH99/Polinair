@@ -1,13 +1,22 @@
+@import url(./reset.scss);
 @import url("https://unpkg.com/mvp.css");
-  
+
+*{
+font-family: monospace !important;
+}
+
+:root{
+  --width-card: none;
+    --width-card-medium: none;
+    --width-card-wide: none;
+    --width-content: none;
+}
+
 body {
   min-height: 1000px;
   background-image: url("./src/svg/navbar.svg");
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-section {
 }
 
 form{
@@ -17,88 +26,20 @@ padding-top: 0.5rem;
 padding-right: 0.5rem;
 }
 
-@media(max-width: 980px){
+button{
+padding : 0.5rem 0.8rem;
+line-height:1.5;
+margin:0;
+:hover{
+  filter: none !important;
+}
+}
+
+@media(max-width:425px){
   .component-container{
-    .sidebar{
-      width: 60%;
-    }
+   .map-container{
+    width:100%;
   }
 }
-
-@media (max-width: 763px) {
-  .flex {
-    margin-top: 0;
-    padding-top: 0;
-    .form2 {
-      height: auto;
-      margin-top: 0;
-      padding-top: 0;
-    }
-  }
 }
 
-
-@media(max-width: 655px){
-  .component-container{
-    .sidebar{
-      width: 81%;
-    }
-  }
-}
-
-
-@media (max-width: 438px) {
-  .interfaceflex{
-    margin-left:26px;
-  .Form {
-    form {
-      padding:0;
-      button {
-        padding: 1rem 2rem;
-      }
-    }
-  }
-  }
-  .Body {
-    &error,
-    &loading {
-      background-image: url("./src/svg/navbar.svg");
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-    ul {
-      margin-left: -40px;
-      aside {
-        width: 260px;
-        margin-top: 1rem;
-        width: 100%;
-      }
-    }
-  }
-  .form2 {
-    .flex2 {
-      .errorbutton {
-        padding: 1rem 2rem;
-      }
-    }
-  }
-}
-
-@media (max-width: 392px) {
-  .Body {
-    ul {
-      margin-left: -40px;
-      aside {
-        width: 220px;
-        margin-top: 1rem;
-        width: 100%;
-      }
-    }
-  }
-}
-
-@media (max-width: 335px) {
-  :root {
-    --width-card: none;
-  }
-}
