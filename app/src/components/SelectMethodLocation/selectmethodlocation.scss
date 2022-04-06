@@ -1,17 +1,22 @@
-.interfaceflex {
-  display: flex;
-  background-image: url("./src/svg/navbar.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-.Form {
-    form {
-      outline: none;
-      box-shadow: none;
-      border: none;
-      h2 {
-        color: white;
-      }
-      .interfacebutton {
+.backgroundradiobutton{
+    background-image: url("./src/svg/navbar.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width:auto;
+    height:auto;
+.radiobuttonform {
+  display:flex;
+  flex-direction: column;
+  align-items: left;
+    outline: none;
+    border:none;
+    box-shadow: none;
+    color:white;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    .radiobutton{
         margin-right: 10px;
         background-color: rgb(241, 149, 10);
         border: 2px solid rgb(110, 75, 23);
@@ -21,6 +26,7 @@
         box-shadow: inset 0 0 0.5em rgb(241, 149, 10), 0 0 0.5em rgb(241, 149, 10);
         position: relative;
         transition: background-color 100ms linear;
+        padding:0.5rem;
         &::before {
           pointer-events: none;
           content: "";
@@ -59,15 +65,6 @@
             opacity: 1;
           }
         }
-        &__toggle{
-        margin-right: 10px;
-        background-color: rgb(110, 75, 23);
-        border: 2px solid rgb(110, 75, 23);
-        color: white;
-        cursor: pointer;
-        transition: background-color 100ms linear;
-        }
       }
-    }
-  }
+}
 }

@@ -1,10 +1,10 @@
 import React from "react";
-import "./body.scss";
+import "./informationcards.scss";
 
-const Body = ({ standarddata, error, loading, input }) => {
+const InformationCards = ({ standarddata, error, loading, input }) => {
   return (
     <>
-      <section className="Body">
+      <section className="InformationCards">
         <h3 className="pollentitle">
           Pollen Data - {input ? input : "Your Location's Data"}
         </h3>
@@ -14,7 +14,7 @@ const Body = ({ standarddata, error, loading, input }) => {
         </div>
       </section>
       {standarddata?.data.length > 0 && (
-        <section className="Body">
+        <section className="InformationCards">
           <ul>
             {standarddata.data.map(({ date, types: { tree, weed, grass } }) => (
               <aside key={date}>
@@ -55,4 +55,4 @@ const Body = ({ standarddata, error, loading, input }) => {
   );
 };
 
-export default Body;
+export default InformationCards;

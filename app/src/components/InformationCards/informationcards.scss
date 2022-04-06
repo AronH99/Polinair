@@ -1,57 +1,46 @@
-.Body {
-    background-image: url("./src/svg/navbar.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    margin-top: 0 !important;
-    padding-top: 0;
+.InformationCards {
     .pollentitle{
-      padding-left: 26px;
       color: white;
-      font-size: 25px;
+      font-size: 22px;
       display: block;
       width: 100%;
-      margin-bottom: 0;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
+      text-align: center;
+      font-weight: bold;
 }
-    .HeadingBody {
-      padding-left: 26px;
-      color: white;
-      font-size: 23px;
+    .ErrorandLoading {
       display: block;
       width: 100%;
-      margin-bottom: 0;
-      margin-top: 1rem;
-    }
-    .ErrorandLoading {
-      display: inline-block;
-      width: 100%;
-      font-size: 20px;
+      font-size: 18px;
       color: white;
-      margin-left: 26px;
       padding-bottom: 0;
       font-weight: bold;
+      text-align:center;
     }
     ul {
       display: flex;
-      flex-grow: 1;
-      flex-shrink: 1;
       flex-wrap: wrap;
-      justify-content: start;
-      margin-left: -33px;
+      justify-content: space-evenly;
       margin-top: 0;
       aside {
         background-color: rgb(110, 75, 23);
         border: 1px solid rgb(241, 149, 10);
         box-shadow: 0 0 0 0.05em rgb(241, 149, 10);
+        flex: 1 1 250px;
         h3 {
-          border: 1px solid black;
+          border: 1px solid white;
           border-radius: 5px;
           display: flex;
           justify-content: center;
           color: white;
+          font-size: 18px;
+          font-weight: bold;
+          line-height:1.5;
         }
         article {
+          color: white;
+          line-height: 1.5;
+          font-size: 16px;
           p:first-child {
             font-weight: bold;
             font-size: 18px;

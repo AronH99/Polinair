@@ -5,11 +5,29 @@ background-image: url("./src/svg/navbar.svg");
 background-size: cover;
 background-repeat: no-repeat;
 display:flex;
-justify-content:center;
+align-items: center;
+flex-direction: column-reverse;
 .map-container {
 height: 400px;
-width: 90%;
+width: 70%;
 position: relative;
+.mapboxgl-canvas{
+   width:auto;
+}
+.mapboxgl-ctrl-top-right {
+    display:flex;
+    justify-content:right;
+   position: relative;
+.mapboxgl-ctrl-geocoder{
+margin:0;
+&--input{
+    height:40px;
+}
+&--icon-search{
+    top:10px;
+}
+}
+}
 }
  .sidebar {
 background-color: rgb(110, 75, 23);
@@ -17,11 +35,10 @@ color: #fff;
 padding: 6px 12px;
 font-family: monospace;
 z-index: 1;
-position:absolute;
 margin: 0px;
 border-radius: 4px;
-width: 40%;
+width: 60%;
 display:flex;
-justify-content:center;
+justify-content: center;
 }
 }
