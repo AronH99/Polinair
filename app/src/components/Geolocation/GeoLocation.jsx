@@ -7,17 +7,25 @@ const GeoLocation = ({
   coords,
   setLat,
   setLon,
+  setGeoloading,
+  lat,
+  lon,
 }) => {
   useEffect(() => {
     if (!isGeolocationAvailable) {
       alert("Your browser does not support Geolocation");
     }
     if (!isGeolocationEnabled) {
-      alert("Geolocation is not enabled");
+      alert("This application needs your Location to function properly");
     }
     if (coords) {
       setLat(coords.latitude);
       setLon(coords.longitude);
+    }
+    if (!lat || !lon) {
+      setGeoloading(true);
+    } else {
+      setGeoloading(false);
     }
   }, [coords]);
 
