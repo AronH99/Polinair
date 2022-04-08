@@ -1,16 +1,9 @@
 import { React, useState } from "react";
 import "./selectmethodlocation.scss";
 
-const SelectMethodLocation = ({ setLocationbool, locationbool, setInput }) => {
-  const [radiobutton, setRadiobutton] = useState();
-  const handleChange = (e) => {
-    const target = e.target;
-    if (target.checked) {
-      setRadiobutton(target.value);
-      setLocationbool(radiobutton === "Your Location");
-      setInput("");
-    }
-  };
+const SelectMethodLocation = ({ setLocationbool, setInput, input }) => {
+  const [methodbutton, setMethodbutton] = useState();
+
   return (
     <>
       <div className="backgroundradiobutton">
@@ -18,30 +11,34 @@ const SelectMethodLocation = ({ setLocationbool, locationbool, setInput }) => {
           className="radiobuttonform"
           onSubmit={(e) => {
             e.preventDefault();
+            setLocationbool(methodbutton === "Your Location");
+            if (input || methodbutton === "Your Location") {
+              setInput();
+            }
           }}
         >
-          <label htmlFor="yourlocation">
-            <input
-              type="radio"
-              id="yourlocation"
-              name="Select Location"
-              value="Your Location"
-              checked={locationbool}
-              onChange={handleChange}
-            />
-              Your Location
-          </label>
-          <label htmlFor="searchedlocation">
-            <input
-              type="radio"
-              id="css"
-              name="Select Location"
-              value="Searched Location"
-              checked={!locationbool}
-              onChange={handleChange}
-            />
-              Searched Location
-          </label>
+          <button
+            value="Your Location"
+            onClick={(e) => {
+              setMethodbutton(e.target.value);
+            }}
+            className={`radiobutton${
+              methodbutton === "Your Location" ? "__toggle" : ""
+            }`}
+          >
+            Use Your Location
+          </button>
+          <button
+            value="MapLocation"
+            onClick={(e) => {
+              setMethodbutton(e.target.value);
+            }}
+            className={`radiobutton${
+              methodbutton === "MapLocation" ? "__toggle" : ""
+            }`}
+          >
+            Use Map Location
+          </button>
         </form>
       </div>
     </>
