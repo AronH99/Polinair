@@ -70,7 +70,7 @@ const Map = ({
   useEffect(() => {
     setLat(latit);
     setLon(lng);
-  }, [locationbool, latit, lng]);
+  }, [searchresultsbool, latit, lng]);
 
   useEffect(() => {
     if (!map.current) return;
