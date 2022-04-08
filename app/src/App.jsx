@@ -16,9 +16,10 @@ const App = () => {
   const [days, setDays] = useState(1);
   const [lat, setLat] = useState();
   const [lon, setLon] = useState();
-  const [input, setInput] = useState();
   const [locationbool, setLocationbool] = useState(true);
   const [geoloading, setGeoloading] = useState(false);
+  const [searchresults, setSearchresults] = useState();
+  const [searchresultsbool, setSearchresultsbool] = useState(false);
 
   const [{ data: standarddata, loading, error }, fetchBreezoData] = useAxios(
     `https://api.breezometer.com/pollen/v2/forecast/daily?lat=${lat}&lon=${lon}&key=8496f755e9fb4717970612a504b952f3&days=${days}`,
@@ -36,8 +37,10 @@ const App = () => {
       <Navbar />
       <SelectMethodLocation
         setLocationbool={setLocationbool}
-        setInput={setInput}
-        input={input}
+        setSearchresults={setSearchresults}
+        searchresults={searchresults}
+        setSearchresultsbool={setSearchresultsbool}
+        searchresultsbool={searchresultsbool}
       />
       <SelectDays setDays={setDays}>
         {/*  {!locationbool && (
@@ -60,19 +63,19 @@ const App = () => {
       )}
       <Map
         locationbool={locationbool}
-        setInput={setInput}
         setLat={setLat}
         setLon={setLon}
         lat={lat}
         lon={lon}
         geoloading={geoloading}
-        input={input}
+        setSearchresults={setSearchresults}
+        searchresultsbool={searchresultsbool}
       />
       <InformationCards
         error={error}
         loading={loading}
         standarddata={standarddata}
-        input={input}
+        searchresults={searchresults}
       />
     </>
   );

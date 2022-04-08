@@ -1,12 +1,13 @@
-import React from "react";
+import { React, useEffect } from "react";
 import "./informationcards.scss";
 
-const InformationCards = ({ standarddata, error, loading, input }) => {
+const InformationCards = ({ standarddata, error, loading, searchresults }) => {
+  useEffect(() => {}, [searchresults]);
   return (
     <>
       <section className="InformationCards">
         <h3 className="pollentitle">
-          Pollen Data - {input ? input : "Your Location's Data"}
+          Pollen Data - {searchresults ? searchresults : "Your Location's Data"}
         </h3>
         <div className="ErrorandLoading">
           {error && <p>Error !!!</p>}
