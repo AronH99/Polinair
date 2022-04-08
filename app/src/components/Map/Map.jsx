@@ -10,14 +10,14 @@ mapboxgl.accessToken =
   "pk.eyJ1IjoiYXJvbjY0IiwiYSI6ImNsMWRiZW1hbDAwenkzaW1sZWJwZzFuaXEifQ.UiBcP8NENwG_jH_nzAH48w";
 
 const Map = ({
-  setInput,
   locationbool,
   setLat,
   setLon,
   lat,
   lon,
   geoloading,
-  input,
+  setSearchresults,
+  searchresultsbool,
 }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -57,15 +57,14 @@ const Map = ({
   }, [map?.current, lat, lon]);
 
   useEffect(() => {
-    if (!input) {
-      setInput(
-        map.current?._container.childNodes[2].childNodes[1].childNodes[0]
-          .childNodes[1].value
-      );
-    }
+    setSearchresults(
+      map.current?._container.childNodes[2].childNodes[1].childNodes[0]
+        .childNodes[1].value
+    );
   }, [
     map.current?._container.childNodes[2].childNodes[1].childNodes[0]
       .childNodes[1].value,
+    searchresultsbool,
   ]);
 
   useEffect(() => {

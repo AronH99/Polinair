@@ -1,7 +1,13 @@
 import { React, useState } from "react";
 import "./selectmethodlocation.scss";
 
-const SelectMethodLocation = ({ setLocationbool, setInput, input }) => {
+const SelectMethodLocation = ({
+  setLocationbool,
+  setSearchresults,
+  searchresults,
+  setSearchresultsbool,
+  searchresultsbool,
+}) => {
   const [methodbutton, setMethodbutton] = useState();
 
   return (
@@ -12,15 +18,13 @@ const SelectMethodLocation = ({ setLocationbool, setInput, input }) => {
           onSubmit={(e) => {
             e.preventDefault();
             setLocationbool(methodbutton === "Your Location");
-            if (input || methodbutton === "Your Location") {
-              setInput();
-            }
           }}
         >
           <button
             value="Your Location"
             onClick={(e) => {
               setMethodbutton(e.target.value);
+              setSearchresults();
             }}
             className={`radiobutton${
               methodbutton === "Your Location" ? "__toggle" : ""
@@ -32,6 +36,8 @@ const SelectMethodLocation = ({ setLocationbool, setInput, input }) => {
             value="MapLocation"
             onClick={(e) => {
               setMethodbutton(e.target.value);
+              setSearchresultsbool(!searchresultsbool);
+              setSearchresults(searchresults);
             }}
             className={`radiobutton${
               methodbutton === "MapLocation" ? "__toggle" : ""
