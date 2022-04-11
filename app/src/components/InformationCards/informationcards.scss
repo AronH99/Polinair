@@ -1,12 +1,19 @@
 .InformationCards {
+  background-image: url("./src/svg/navbar.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
     .pollentitle{
       color: white;
       font-size: 22px;
       display: block;
       width: 100%;
-      margin-top: 1.5rem;
       text-align: center;
       font-weight: bold;
+      background-image: url("./src/svg/navbar.svg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
 }
     .ErrorandLoading {
       display: block;
@@ -27,6 +34,8 @@
         border: 1px solid rgb(241, 149, 10);
         box-shadow: 0 0 0 0.05em rgb(241, 149, 10);
         flex: 1 1 250px;
+        margin:0.5rem;
+        margin-top:0;
         h3 {
           border: 1px solid white;
           border-radius: 5px;

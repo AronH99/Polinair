@@ -13,7 +13,6 @@ const SelectDays = ({ setDays, children }) => {
               setDays(counter);
             }}
           >
-            <h2>Select Days</h2>
             <div className="flexdaysbuttons">
               <button
                 onClick={() => {

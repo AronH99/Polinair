@@ -9,44 +9,8 @@
   flex-direction: column-reverse;
 .map-container {
     height: 500px;
-    width: 70%;
+    width: 80%;
     position: relative;
-.mapboxgl-canvas{
-    width:auto;
-}
-.mapboxgl-ctrl-top-right {
-    display:flex;
-    justify-content:right;
-    position: relative;
-    .mapboxgl-ctrl{
-margin:0;
-    }
-&--input{
-    height:40px;
-    font-size:16px;
-}
-&--icon-search{
-    top:13px;
-    height:16px;
-    }
-}
-}
-.sidebar {
-background-color: rgb(110, 75, 23);
-color: #fff;
-padding: 6px 12px;
-font-family: monospace;
-z-index: 1;
-margin: 0px;
-border-radius: 4px;
-width: 60%;
-display:flex;
-justify-content: center;
 }
 }
 
-.mapboxgl-ctrl-geocoder{
-    .map-container--search-disabled &{
-            display:none;
-        }
-    }

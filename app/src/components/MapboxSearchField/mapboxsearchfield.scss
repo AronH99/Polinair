@@ -1,0 +1,40 @@
+.MapboxSearchFieldBackground{
+    width:auto;
+    height:auto;
+    background-image: url("./src/svg/navbar.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1rem;
+    padding-top: 0;
+    position: relative;
+    .mapboxgl-ctrl-geocoder--input{
+     background-color: rgb(110, 75, 23);
+     color: white !important;
+     &::placeholder{
+         color: white;
+         opacity:0.5;
+     }
+     &::active, &:focus{
+         border:none;
+     }
+    }
+    .mapboxgl-ctrl-geocoder--icon {
+        fill: white;
+        opacity:0.5;
+        &-close{
+            background-color:rgb(110, 75, 23) ;
+        }
+    }
+    .mapboxgl-ctrl-geocoder--button{
+        background-color: rgb(110, 75, 23) ;
+    }
+    .mapboxgl-ctrl-geocoder{
+        min-width: 200px;
+    }
+}
+
+.mapboxgl-ctrl-geocoder{
+    .map-container--search-disabled &{
+            display:none;
+        }
+    }
