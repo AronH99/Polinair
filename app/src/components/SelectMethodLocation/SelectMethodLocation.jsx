@@ -1,8 +1,13 @@
 import { React, useState } from "react";
 import "./selectmethodlocation.scss";
 
-const SelectMethodLocation = ({ setLocationbool, setSearchresults }) => {
-  const [methodbutton, setMethodbutton] = useState();
+const SelectMethodLocation = ({
+  setLocationbool,
+  setSearchresults,
+  toggleyourlocation,
+  setToggleYourLocation,
+}) => {
+  const [methodbutton, setMethodbutton] = useState("Your Location");
 
   return (
     <>
@@ -19,6 +24,7 @@ const SelectMethodLocation = ({ setLocationbool, setSearchresults }) => {
             onClick={(e) => {
               setMethodbutton(e.target.value);
               setSearchresults("");
+              setToggleYourLocation(!toggleyourlocation);
             }}
             className={`radiobutton${
               methodbutton === "Your Location" ? "__toggle" : ""

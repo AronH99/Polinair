@@ -7,7 +7,7 @@ import React, { useRef, useEffect, useState } from "react";
 mapboxgl.accessToken =
   "pk.eyJ1IjoiYXJvbjY0IiwiYSI6ImNsMWRiZW1hbDAwenkzaW1sZWJwZzFuaXEifQ.UiBcP8NENwG_jH_nzAH48w";
 
-const Map = ({ lat, lon }) => {
+const Map = ({ lat, lon, children, choosetype }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [zoom, setZoom] = useState(9);
@@ -21,8 +21,8 @@ const Map = ({ lat, lon }) => {
       center: [lon, lat],
       zoom: zoom,
       dragPan: false,
-      touchZoomRotate: { around: "center" },
       scrollZoom: { around: "center" },
+      touchZoomRotate: { around: "center" },
       maxZoom: 14,
       minZoom: 5,
     });
@@ -92,9 +92,44 @@ const Map = ({ lat, lon }) => {
     });
   }, []);
 
+  useEffect(() => {
+    map?.current.on("load", function () {
+      addRasterSource();
+      addRasterLayer();
+    });
+
+    function addRasterSource() {
+      map?.current.addSource("breezometer-tiles", {
+        type: "raster",
+        tiles: [
+          `https://tiles.breezometer.com/v1/pollen/${choosetype}/forecast/daily/{z}/{x}/{y}.png?key=1543d470bf7e4ae5b443dd17833ff9a4`,
+        ],
+        tileSize: 256,
+        maxzoom: 14,
+      });
+    }
+
+    function addRasterLayer() {
+      map?.current.addLayer(
+        {
+          id: "breezometer-tiles",
+          type: "raster",
+          source: "breezometer-tiles",
+          minzoom: 5,
+          maxzoom: 14.1,
+          paint: {
+            "raster-opacity": 0.6,
+          },
+        },
+        "admin-1-boundary-bg"
+      );
+    }
+  }, [choosetype]);
+
   return (
     <div className="component-container">
       <div ref={mapContainer} className="map-container" />
+      {children}
     </div>
   );
 };

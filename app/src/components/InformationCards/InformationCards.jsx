@@ -1,7 +1,13 @@
 import { React, useEffect } from "react";
 import "./informationcards.scss";
 
-const InformationCards = ({ standarddata, error, loading, searchresults }) => {
+const InformationCards = ({
+  standarddata,
+  error,
+  loading,
+  searchresults,
+  children,
+}) => {
   useEffect(() => {}, [searchresults]);
   return (
     <>
@@ -9,6 +15,7 @@ const InformationCards = ({ standarddata, error, loading, searchresults }) => {
         <h3 className="pollentitle">
           Pollen Data - {searchresults ? searchresults : "Your Location's Data"}
         </h3>
+        {children}
         <div className="ErrorandLoading">
           {error && <p>Error !!!</p>}
           {loading && <p>Loading....</p>}

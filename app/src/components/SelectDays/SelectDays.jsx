@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./selectdays.scss";
 
-const SelectDays = ({ setDays, children }) => {
+const SelectDays = ({ setDays }) => {
   const [counter, setCounter] = useState();
   return (
     <>
@@ -40,7 +40,6 @@ const SelectDays = ({ setDays, children }) => {
               </button>
             </div>
           </form>
-          {children}
         </section>
       </div>
     </>

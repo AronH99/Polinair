@@ -4,7 +4,12 @@ import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
-const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
+const MapboxSearchField = ({
+  setLat,
+  setLon,
+  setSearchresults,
+  searchresults,
+}) => {
   mapboxgl.accessToken =
     "pk.eyJ1IjoiYXJvbjY0IiwiYSI6ImNsMWRiZW1hbDAwenkzaW1sZWJwZzFuaXEifQ.UiBcP8NENwG_jH_nzAH48w";
 

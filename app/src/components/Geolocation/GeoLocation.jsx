@@ -7,7 +7,7 @@ const GeoLocation = ({
   coords,
   setLat,
   setLon,
-  locationbool,
+  toggleyourlocation,
 }) => {
   useEffect(() => {
     if (!isGeolocationAvailable) {
@@ -20,7 +20,7 @@ const GeoLocation = ({
       setLat(coords.latitude);
       setLon(coords.longitude);
     }
-  }, [coords]);
+  }, [coords, toggleyourlocation]);
 
   return null;
 };
