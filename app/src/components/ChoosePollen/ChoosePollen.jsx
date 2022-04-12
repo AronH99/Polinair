@@ -14,7 +14,7 @@ const ChoosePollen = ({ choosetype, setChooseType }) => {
           onClick={(e) => {
             setChooseType(e.target.value);
           }}
-          className={`choosepol${choosetype === "tree" ? "__toggle" : ""}`}
+          className={`choosepol${choosetype === "tree" ? "--active" : ""}`}
         >
           Tree
         </button>
@@ -23,7 +23,7 @@ const ChoosePollen = ({ choosetype, setChooseType }) => {
           onClick={(e) => {
             setChooseType(e.target.value);
           }}
-          className={`choosepol${choosetype === "grass" ? "__toggle" : ""}`}
+          className={`choosepol${choosetype === "grass" ? "--active" : ""}`}
         >
           Grass
         </button>
@@ -32,7 +32,7 @@ const ChoosePollen = ({ choosetype, setChooseType }) => {
           onClick={(e) => {
             setChooseType(e.target.value);
           }}
-          className={`choosepol${choosetype === "weed" ? "__toggle" : ""}`}
+          className={`choosepol${choosetype === "weed" ? "--active" : ""}`}
         >
           Weed
         </button>
