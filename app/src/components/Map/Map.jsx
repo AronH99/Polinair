@@ -92,37 +92,55 @@ const Map = ({ lat, lon, children, choosetype }) => {
     });
   }, []);
 
+  const addRasterLayer = () => {
+    map?.current.addLayer(
+      {
+        id: "breezometer-tiles",
+        type: "raster",
+        source: "breezometer-tiles",
+        minzoom: 5,
+        maxzoom: 14.1,
+        paint: {
+          "raster-opacity": 0.6,
+        },
+      },
+      "admin-1-boundary-bg"
+    );
+  };
+
+  const addRasterSource = () => {
+    map?.current.addSource("breezometer-tiles", {
+      type: "raster",
+      tiles: [
+        `https://tiles.breezometer.com/v1/pollen/${choosetype}/forecast/daily/{z}/{x}/{y}.png?key=1543d470bf7e4ae5b443dd17833ff9a4`,
+      ],
+      tileSize: 256,
+      maxzoom: 14,
+    });
+  };
+
+  //initial load
   useEffect(() => {
     map?.current.on("load", function () {
       addRasterSource();
       addRasterLayer();
     });
+  }, []);
 
-    function addRasterSource() {
-      map?.current.addSource("breezometer-tiles", {
-        type: "raster",
-        tiles: [
+  console.log(map?.current);
+  //remove and reload of layout
+  useEffect(() => {
+    if (map?.current.getSource("breezometer-tiles")) {
+      map?.current
+        .getSource("breezometer-tiles")
+        .setTiles([
           `https://tiles.breezometer.com/v1/pollen/${choosetype}/forecast/daily/{z}/{x}/{y}.png?key=1543d470bf7e4ae5b443dd17833ff9a4`,
-        ],
-        tileSize: 256,
-        maxzoom: 14,
-      });
+        ]);
     }
 
-    function addRasterLayer() {
-      map?.current.addLayer(
-        {
-          id: "breezometer-tiles",
-          type: "raster",
-          source: "breezometer-tiles",
-          minzoom: 5,
-          maxzoom: 14.1,
-          paint: {
-            "raster-opacity": 0.6,
-          },
-        },
-        "admin-1-boundary-bg"
-      );
+    if (map?.current.getLayer("breezometer-tiles")) {
+      map?.current.removeLayer("breezometer-tiles");
+      addRasterLayer();
     }
   }, [choosetype]);
 
