@@ -11,6 +11,7 @@ const Map = ({ lat, lon, children, choosetype }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [zoom, setZoom] = useState(9);
+  const [probeersel, setProbeersel] = useState(false);
 
   //initiates map
   useEffect(() => {
@@ -127,22 +128,22 @@ const Map = ({ lat, lon, children, choosetype }) => {
     });
   }, []);
 
-  console.log(map?.current);
   //remove and reload of layout
   useEffect(() => {
-    if (map?.current.getSource("breezometer-tiles")) {
-      map?.current
-        .getSource("breezometer-tiles")
-        .setTiles([
-          `https://tiles.breezometer.com/v1/pollen/${choosetype}/forecast/daily/{z}/{x}/{y}.png?key=1543d470bf7e4ae5b443dd17833ff9a4`,
-        ]);
-    }
-
     if (map?.current.getLayer("breezometer-tiles")) {
       map?.current.removeLayer("breezometer-tiles");
-      addRasterLayer();
+    }
+    if (map?.current.getSource("breezometer-tiles")) {
+      map?.current.removeSource("breezometer-tiles");
+      setProbeersel(true);
     }
   }, [choosetype]);
+
+  useEffect(() => {
+    probeersel && addRasterSource();
+    probeersel && addRasterLayer();
+    setProbeersel(false);
+  }, [probeersel]);
 
   return (
     <div className="component-container">

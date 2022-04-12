@@ -36,6 +36,11 @@ const App = () => {
   return (
     <>
       <Navbar />
+      <GeoLocation
+        setLat={setLat}
+        setLon={setLon}
+        toggleyourlocation={toggleyourlocation}
+      />
       <SelectMethodLocation
         setLocationbool={setLocationbool}
         setSearchresults={setSearchresults}
@@ -50,11 +55,6 @@ const App = () => {
           searchresults={searchresults}
         />
       )}
-      <GeoLocation
-        setLat={setLat}
-        setLon={setLon}
-        toggleyourlocation={toggleyourlocation}
-      />
       <Map lat={lat} lon={lon} choosetype={choosetype}>
         <ChoosePollen setChooseType={setChooseType} choosetype={choosetype} />
       </Map>
