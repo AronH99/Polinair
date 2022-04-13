@@ -21,7 +21,7 @@ const InformationCards = ({
           {loading && <p>Loading....</p>}
         </div>
       </section>
-      {standarddata?.data.length > 0 && (
+      {!error && standarddata?.data.length > 0 && (
         <section className="InformationCards">
           <ul>
             {standarddata.data.map(({ date, types: { tree, weed, grass } }) => (

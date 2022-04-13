@@ -11,7 +11,7 @@ const Map = ({ lat, lon, children, choosetype }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [zoom, setZoom] = useState(9);
-  const [probeersel, setProbeersel] = useState(false);
+  const [updateMapLayout, setUpdateMapLayout] = useState(false);
 
   //initiates map
   useEffect(() => {
@@ -135,15 +135,15 @@ const Map = ({ lat, lon, children, choosetype }) => {
     }
     if (map?.current.getSource("breezometer-tiles")) {
       map?.current.removeSource("breezometer-tiles");
-      setProbeersel(true);
+      setUpdateMapLayout(true);
     }
   }, [choosetype]);
 
   useEffect(() => {
-    probeersel && addRasterSource();
-    probeersel && addRasterLayer();
-    setProbeersel(false);
-  }, [probeersel]);
+    updateMapLayout && addRasterSource();
+    updateMapLayout && addRasterLayer();
+    setUpdateMapLayout(false);
+  }, [updateMapLayout]);
 
   return (
     <div className="component-container">

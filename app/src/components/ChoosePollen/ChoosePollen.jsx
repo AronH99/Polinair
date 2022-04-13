@@ -1,7 +1,12 @@
 import "./choosepollen.scss";
-import { React } from "react";
+import { React, useEffect } from "react";
 
 const ChoosePollen = ({ choosetype, setChooseType }) => {
+  useEffect(() => {
+    const json = JSON.stringify(choosetype);
+    localStorage.setItem("choosetype", json);
+  }, [choosetype]);
+
   return (
     <div className="buttonselection">
       <form
