@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./selectdays.scss";
 
-const SelectDays = ({ setDays }) => {
+const SelectDays = ({ setDays, days }) => {
   const [counter, setCounter] = useState();
+
+  useEffect(() => {
+    const json = JSON.stringify(days);
+    localStorage.setItem("days", json);
+  }, [days]);
+
   return (
     <>
       <div className="interfaceflex">
@@ -18,7 +24,7 @@ const SelectDays = ({ setDays }) => {
                 onClick={() => {
                   setCounter(1);
                 }}
-                className={`interfacebutton${counter === 1 ? "__toggle" : ""}`}
+                className={`interfacebutton${days === 1 ? "--active" : ""}`}
               >
                 1 Day
               </button>
@@ -26,7 +32,7 @@ const SelectDays = ({ setDays }) => {
                 onClick={() => {
                   setCounter(2);
                 }}
-                className={`interfacebutton${counter === 2 ? "__toggle" : ""}`}
+                className={`interfacebutton${days === 2 ? "--active" : ""}`}
               >
                 2 Days
               </button>
@@ -34,7 +40,7 @@ const SelectDays = ({ setDays }) => {
                 onClick={() => {
                   setCounter(3);
                 }}
-                className={`interfacebutton${counter === 3 ? "__toggle" : ""}`}
+                className={`interfacebutton${days === 3 ? "--active" : ""}`}
               >
                 3 Days
               </button>

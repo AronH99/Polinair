@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import "./selectmethodlocation.scss";
 
 const SelectMethodLocation = ({
@@ -6,8 +6,17 @@ const SelectMethodLocation = ({
   setSearchresults,
   toggleyourlocation,
   setToggleYourLocation,
+  locationbool,
 }) => {
-  const [methodbutton, setMethodbutton] = useState("Your Location");
+  const [methodbutton, setMethodbutton] = useState(
+    () => JSON.parse(localStorage.getItem("methodbutton")) ?? "Your Location"
+  );
+  useEffect(() => {
+    const json = JSON.stringify(methodbutton);
+    const json2 = JSON.stringify(locationbool);
+    localStorage.setItem("methodbutton", json);
+    localStorage.setItem("locationbool", json2);
+  }, [methodbutton]);
 
   return (
     <>
@@ -27,7 +36,7 @@ const SelectMethodLocation = ({
               setToggleYourLocation(!toggleyourlocation);
             }}
             className={`radiobutton${
-              methodbutton === "Your Location" ? "__toggle" : ""
+              methodbutton === "Your Location" ? "--active" : ""
             }`}
           >
             Use Your Location
@@ -38,7 +47,7 @@ const SelectMethodLocation = ({
               setMethodbutton(e.target.value);
             }}
             className={`radiobutton${
-              methodbutton === "MapLocation" ? "__toggle" : ""
+              methodbutton === "MapLocation" ? "--active" : ""
             }`}
           >
             Use Map Location
