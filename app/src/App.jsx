@@ -46,6 +46,7 @@ const App = () => {
           setLat={setLat}
           setLon={setLon}
           toggleyourlocation={toggleyourlocation}
+          setSearchresults={setSearchresults}
         />
       )}
       <SelectMethodLocation

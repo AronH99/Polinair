@@ -31,6 +31,7 @@ const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
       setLocalStorageData("lon", e.result?.center[0]);
       setLocalStorageData("lat", e.result?.center[1]);
       setLocalStorageData("placename", e.result?.place_name);
+      //pins maken
     });
 
     search?.current.on("clear", () => {

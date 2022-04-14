@@ -48,7 +48,7 @@ const Map = ({ lat, lon, children, choosetype }) => {
     }
   }, [lon, lat]);
 
-  //blauwe pin
+  //initial pin
   useEffect(() => {
     if (!map.current) return;
     map?.current.on("load", () => {
@@ -56,7 +56,6 @@ const Map = ({ lat, lon, children, choosetype }) => {
         "https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png",
         (error, image) => {
           if (error) throw error;
-
           map?.current.addImage("custom-marker", image);
           map?.current.addSource("points", {
             type: "geojson",

@@ -8,12 +8,11 @@ const InformationCards = ({
   searchresults,
   children,
 }) => {
-  useEffect(() => {}, [searchresults]);
   return (
     <>
       <section className="InformationCards">
         <h3 className="pollentitle">
-          Pollen Data - {searchresults ? searchresults : "Your Location's Data"}
+          Pollen Data - {searchresults ? searchresults : "Brussel"}
         </h3>
         {children}
         <div className="ErrorandLoading">
