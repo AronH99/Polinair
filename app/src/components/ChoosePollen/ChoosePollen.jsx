@@ -4,8 +4,7 @@ import { setLocalStorageData } from "../../hooks/LocalStorage";
 
 const ChoosePollen = ({ choosetype, setChooseType }) => {
   useEffect(() => {
-    const json = JSON.stringify(choosetype);
-    localStorage.setItem("choosetype", json);
+    setLocalStorageData("choosetype", choosetype);
   }, [choosetype]);
 
   return (

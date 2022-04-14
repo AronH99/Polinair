@@ -1,5 +1,9 @@
 import { geolocated } from "react-geolocated";
 import { useEffect } from "react";
+import {
+  setLocalStorageData,
+  getLocalStorageData,
+} from "../../hooks/LocalStorage";
 
 const GeoLocation = ({
   isGeolocationAvailable,
@@ -24,18 +28,14 @@ const GeoLocation = ({
 
   useEffect(() => {
     if (coords) {
-      const json = JSON.stringify(coords.latitude);
-      const json2 = JSON.stringify(coords.longitude);
-      localStorage.setItem("geolat", json);
-      localStorage.setItem("geolon", json2);
+      setLocalStorageData("geolat", coords.latitude);
+      setLocalStorageData("geolon", coords.longitude);
     }
   }, [coords]);
 
   useEffect(() => {
-    const json = localStorage.getItem("geolat");
-    const json2 = localStorage.getItem("geolon");
-    const geolat = JSON.parse(json);
-    const geolon = JSON.parse(json2);
+    const geolat = getLocalStorageData("geolat");
+    const geolon = getLocalStorageData("geolon");
     if (geolat || geolon) {
       setLat(geolat);
       setLon(geolon);
