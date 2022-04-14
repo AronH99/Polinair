@@ -28,15 +28,15 @@ const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
       setLat(e.result?.center[1]);
       setSearchresults(e.result?.place_name);
       //localstorage
-      /* const json = JSON.stringify(e.result?.center[0]);
+      const json = JSON.stringify(e.result?.center[0]);
       const json2 = JSON.stringify(e.result?.center[1]);
       const json3 = JSON.stringify(e.result?.place_name);
       localStorage.setItem("lon", json);
       localStorage.setItem("lat", json2);
-      localStorage.setItem("placename", json3); */
-      setLocalStorageData("lon", e.result?.center[0]);
+      localStorage.setItem("placename", json3);
+      /* setLocalStorageData("lon", e.result?.center[0]);
       setLocalStorageData("lat", e.result?.center[1]);
-      setLocalStorageData("placename", e.result?.place_name);
+      setLocalStorageData("placename", e.result?.place_name); */
     });
 
     search?.current.on("clear", () => {
@@ -54,9 +54,12 @@ const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
   }, []);
 
   useEffect(() => {
-    const lon = getLocalStorageData("lon");
-    const lat = getLocalStorageData("lat");
-    const placename = getLocalStorageData("placename");
+    const json = localStorage.getItem("lon");
+    const lon = JSON.parse(json);
+    const json2 = localStorage.getItem("lat");
+    const lat = JSON.parse(json2);
+    const json3 = localStorage.getItem("placename");
+    const placename = JSON.parse(json3);
     if (lon || lat || placename) {
       setLon(lon);
       setLat(lat);

@@ -1,4 +1,4 @@
-const getLocalStorageData = (string) => {
+const getLocalStorageData = async (string) => {
   return JSON.parse(localStorage.getItem(string));
 };
 
