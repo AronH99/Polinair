@@ -8,20 +8,19 @@ import MapboxSearchField from "./components/MapboxSearchField/MapboxSearchField"
 import SelectMethodLocation from "./components/SelectMethodLocation/SelectMethodLocation";
 import Map from "./components/Map/Map";
 import ChoosePollen from "./components/ChoosePollen/ChoosePollen";
+import { getLocalStorageData } from "./hooks/LocalStorage";
 import "./style.scss";
 
 /* const apiuitbreiding =
   "https://api.breezometer.com/pollen/v2/forecast/daily?lat=48.857456&lon=2.354611&days=3&key=1543d470bf7e4ae5b443dd17833ff9a4&features=types_information,plants_information"; */
 
 const App = () => {
-  const [days, setDays] = useState(
-    () => JSON.parse(localStorage.getItem("days")) ?? 1
-  );
+  const [days, setDays] = useState(() => getLocalStorageData("days") ?? 1);
   const [choosetype, setChooseType] = useState(
-    () => JSON.parse(localStorage.getItem("choosetype")) ?? "tree"
+    () => getLocalStorageData("choosetype") ?? "tree"
   );
   const [locationbool, setLocationbool] = useState(
-    () => JSON.parse(localStorage.getItem("locationbool")) ?? true
+    () => getLocalStorageData("locationbool") ?? true
   );
   const [lat, setLat] = useState(50.8503396);
   const [lon, setLon] = useState(4.3517103);

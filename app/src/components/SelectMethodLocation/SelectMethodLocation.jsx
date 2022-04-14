@@ -1,5 +1,9 @@
 import { React, useState, useEffect } from "react";
 import "./selectmethodlocation.scss";
+import {
+  setLocalStorageData,
+  getLocalStorageData,
+} from "../../hooks/LocalStorage";
 
 const SelectMethodLocation = ({
   setLocationbool,
@@ -9,13 +13,11 @@ const SelectMethodLocation = ({
   locationbool,
 }) => {
   const [methodbutton, setMethodbutton] = useState(
-    () => JSON.parse(localStorage.getItem("methodbutton")) ?? "Your Location"
+    () => getLocalStorageData("methodbutton") ?? "Your Location"
   );
   useEffect(() => {
-    const json = JSON.stringify(methodbutton);
-    const json2 = JSON.stringify(locationbool);
-    localStorage.setItem("methodbutton", json);
-    localStorage.setItem("locationbool", json2);
+    setLocalStorageData("methodbutton", methodbutton);
+    setLocalStorageData("locationbool", locationbool);
   }, [methodbutton]);
 
   return (

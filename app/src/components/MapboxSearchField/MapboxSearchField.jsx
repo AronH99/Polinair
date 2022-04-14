@@ -3,6 +3,10 @@ import { React, useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import {
+  setLocalStorageData,
+  getLocalStorageData,
+} from "../../hooks/LocalStorage";
 
 const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
   mapboxgl.accessToken =
@@ -24,12 +28,15 @@ const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
       setLat(e.result?.center[1]);
       setSearchresults(e.result?.place_name);
       //localstorage
-      const json = JSON.stringify(e.result?.center[0]);
+      /* const json = JSON.stringify(e.result?.center[0]);
       const json2 = JSON.stringify(e.result?.center[1]);
       const json3 = JSON.stringify(e.result?.place_name);
       localStorage.setItem("lon", json);
       localStorage.setItem("lat", json2);
-      localStorage.setItem("placename", json3);
+      localStorage.setItem("placename", json3); */
+      setLocalStorageData("lon", e.result?.center[0]);
+      setLocalStorageData("lat", e.result?.center[1]);
+      setLocalStorageData("placename", e.result?.place_name);
     });
 
     search?.current.on("clear", () => {
@@ -47,12 +54,9 @@ const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
   }, []);
 
   useEffect(() => {
-    const json = localStorage.getItem("lon");
-    const json2 = localStorage.getItem("lat");
-    const json3 = localStorage.getItem("placename");
-    const lon = JSON.parse(json);
-    const lat = JSON.parse(json2);
-    const placename = JSON.parse(json3);
+    const lon = getLocalStorageData("lon");
+    const lat = getLocalStorageData("lat");
+    const placename = getLocalStorageData("placename");
     if (lon || lat || placename) {
       setLon(lon);
       setLat(lat);
