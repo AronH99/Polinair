@@ -6,9 +6,7 @@ const SelectDays = ({ setDays, days }) => {
   const [counter, setCounter] = useState();
 
   useEffect(() => {
-    const json = JSON.stringify(days);
-    localStorage.setItem("days", json);
-    /* setLocalStorageData("days", days); */
+    setLocalStorageData("days", days);
   }, [days]);
 
   return (
