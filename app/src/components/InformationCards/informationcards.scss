@@ -1,24 +1,20 @@
 .InformationCards {
-  background-image: url("./src/svg/navbar.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
+background-color: #F1FAEE;
     .pollentitle{
-      color: white;
+      color: #457B9D;
       font-size: 22px;
       display: block;
       width: 100%;
       text-align: center;
       font-weight: bold;
-      background-image: url("./src/svg/navbar.svg");
-      background-size: cover;
-      background-repeat: no-repeat;
+      background-color: #F1FAEE;
       padding-top: 1rem;
 }
     .ErrorandLoading {
       display: block;
       width: 100%;
       font-size: 18px;
-      color: white;
+      color: #E63946;
       padding-bottom: 0;
       font-weight: bold;
       text-align:center;
@@ -29,31 +25,31 @@
       justify-content: space-evenly;
       margin-top: 0;
       aside {
-        background-color: rgb(110, 75, 23);
-        border: 1px solid rgb(241, 149, 10);
-        box-shadow: 0 0 0 0.05em rgb(241, 149, 10);
+        background-color: #1D3557;
+        border: 1px solid #457B9D;
+        box-shadow: 0 0 0 0.05em #457B9D;
         flex: 1 1 250px;
         margin:0.5rem;
         margin-top:0;
         h3 {
-          border: 1px solid white;
+          border: 1px solid #F1FAEE;
           border-radius: 5px;
           display: flex;
           justify-content: center;
-          color: white;
+          color: #F1FAEE;
           font-size: 18px;
           font-weight: bold;
           line-height:1.5;
         }
         article {
-          color: white;
+          color: #F1FAEE;
           line-height: 1.5;
           font-size: 16px;
           p:first-child {
             font-weight: bold;
             font-size: 18px;
           }
-          border-bottom: 1px solid grey;
+          border-bottom: 1px solid #E63946;
           p {
             text-align: left;
           }
