@@ -13,11 +13,15 @@ const SelectMethodLocation = ({
   locationbool,
 }) => {
   const [methodbutton, setMethodbutton] = useState(
-    () => getLocalStorageData("methodbutton") ?? "Your Location"
+    () => JSON.parse(localStorage.getItem("methodbutton")) ?? "Your Location"
   );
   useEffect(() => {
-    setLocalStorageData("methodbutton", methodbutton);
-    setLocalStorageData("locationbool", locationbool);
+    /*     setLocalStorageData("methodbutton", methodbutton);
+    setLocalStorageData("locationbool", locationbool); */
+    const json = JSON.stringify(methodbutton);
+    localStorage.setItem("methodbutton", json);
+    const json2 = JSON.stringify(locationbool);
+    localStorage.setItem("locationbool", json2);
   }, [methodbutton]);
 
   return (
