@@ -12,6 +12,7 @@ const GeoLocation = ({
   setLat,
   setLon,
   toggleyourlocation,
+  setSearchresults,
 }) => {
   useEffect(() => {
     if (!isGeolocationAvailable) {
@@ -23,6 +24,7 @@ const GeoLocation = ({
     if (coords) {
       setLat(coords.latitude);
       setLon(coords.longitude);
+      setSearchresults("Your Location's Data");
     }
   }, [coords, toggleyourlocation]);
 
@@ -39,6 +41,7 @@ const GeoLocation = ({
     if (geolat || geolon) {
       setLat(geolat);
       setLon(geolon);
+      setSearchresults("Your Location's Data");
     }
   }, []);
 
