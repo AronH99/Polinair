@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { setLocalStorageData } from "../../hooks/LocalStorage";
 import "./selectdays.scss";
 
 const SelectDays = ({ setDays, days }) => {
   const [counter, setCounter] = useState();
 
   useEffect(() => {
-    const json = JSON.stringify(days);
-    localStorage.setItem("days", json);
+    /*  const json = JSON.stringify(days);
+    localStorage.setItem("days", json); */
+    setLocalStorageData("days", days);
   }, [days]);
 
   return (
