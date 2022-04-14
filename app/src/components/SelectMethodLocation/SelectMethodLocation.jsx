@@ -18,7 +18,7 @@ const SelectMethodLocation = ({
   useEffect(() => {
     setLocalStorageData("methodbutton", methodbutton);
     setLocalStorageData("locationbool", locationbool);
-  }, [methodbutton]);
+  }, [methodbutton, locationbool]);
 
   return (
     <>
