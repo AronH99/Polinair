@@ -16,8 +16,8 @@ const InformationCards = ({
         </h3>
         {children}
         <div className="ErrorandLoading">
-          {error && <p>Error !!!</p>}
-          {loading && <p>Loading....</p>}
+          {error && <p>Oeps... Something went wrong.</p>}
+          {loading && <p>Loading...</p>}
         </div>
       </section>
       {!error && standarddata?.data.length > 0 && (
