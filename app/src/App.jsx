@@ -1,5 +1,4 @@
 import { useState, useEffect, React } from "react";
-import useAxios from "axios-hooks";
 import Navbar from "./components/Navbar/Navbar";
 import SelectDays from "./components/SelectDays/SelectDays";
 import InformationCards from "./components/InformationCards/InformationCards";
@@ -8,35 +7,24 @@ import MapboxSearchField from "./components/MapboxSearchField/MapboxSearchField"
 import SelectMethodLocation from "./components/SelectMethodLocation/SelectMethodLocation";
 import Map from "./components/Map/Map";
 import ChoosePollen from "./components/ChoosePollen/ChoosePollen";
-import { getLocalStorageData } from "./hooks/LocalStorage";
+import { getLocalStorageData } from "./Hooks/LocalStorage";
 import "./style.scss";
 
 /* const apiuitbreiding =
   "https://api.breezometer.com/pollen/v2/forecast/daily?lat=48.857456&lon=2.354611&days=3&key=1543d470bf7e4ae5b443dd17833ff9a4&features=types_information,plants_information"; */
 
 const App = () => {
-  const [days, setDays] = useState(() => getLocalStorageData("days") ?? 1);
+  const [days, setDays] = useState(() => getLocalStorageData("days") || 1);
   const [choosetype, setChooseType] = useState(
-    () => getLocalStorageData("choosetype") ?? "tree"
+    () => getLocalStorageData("choosetype") || "tree"
   );
   const [locationbool, setLocationbool] = useState(
-    () => getLocalStorageData("locationbool") ?? true
+    () => getLocalStorageData("locationbool") || true
   );
   const [lat, setLat] = useState(50.8503396);
   const [lon, setLon] = useState(4.3517103);
   const [searchresults, setSearchresults] = useState();
   const [toggleyourlocation, setToggleYourLocation] = useState(false);
-
-  const [{ data: standarddata, loading, error }, fetchBreezoData] = useAxios(
-    `https://api.breezometer.com/pollen/v2/forecast/daily?lat=${lat}&lon=${lon}&key=1543d470bf7e4ae5b443dd17833ff9a4&days=${days}`,
-    { manual: true }
-  );
-
-  useEffect(() => {
-    if (days && lat && lon) {
-      fetchBreezoData();
-    }
-  }, [days, lat, lon]);
 
   return (
     <>
@@ -66,15 +54,14 @@ const App = () => {
       <Map lat={lat} lon={lon} choosetype={choosetype}>
         <ChoosePollen setChooseType={setChooseType} choosetype={choosetype} />
       </Map>
-      <InformationCards
-        error={error}
-        loading={loading}
-        standarddata={standarddata}
+      {/*   <InformationCards
+        lat={lat}
+        lon={lon}
         searchresults={searchresults}
         days={days}
       >
         <SelectDays setDays={setDays} days={days} />
-      </InformationCards>
+      </InformationCards> */}
     </>
   );
 };

@@ -6,7 +6,7 @@ import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import {
   setLocalStorageData,
   getLocalStorageData,
-} from "../../hooks/LocalStorage";
+} from "../../Hooks/LocalStorage";
 
 const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
   mapboxgl.accessToken =
@@ -41,11 +41,10 @@ const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
       search?.current.setPlaceholder("Search");
       //localstorage
       const json = JSON.stringify("");
-      const json2 = JSON.stringify("");
-      const json3 = JSON.stringify("");
       localStorage.setItem("lon", json);
-      localStorage.setItem("lat", json2);
-      localStorage.setItem("placename", json3);
+      localStorage.setItem("lat", json);
+      localStorage.setItem("placename", json);
+      /*       localStorage.removeItem() */
     });
   }, []);
 

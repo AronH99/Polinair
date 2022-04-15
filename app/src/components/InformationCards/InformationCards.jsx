@@ -1,13 +1,18 @@
 import { React, useEffect } from "react";
+import useAxios from "axios-hooks";
 import "./informationcards.scss";
 
-const InformationCards = ({
-  standarddata,
-  error,
-  loading,
-  searchresults,
-  children,
-}) => {
+const InformationCards = ({ searchresults, children, days, lat, lon }) => {
+  const [{ data: standarddata, loading, error }, fetchBreezoData] = useAxios(
+    `https://api.breezometer.com/pollen/v2/forecast/daily?lat=${lat}&lon=${lon}&key=1543d470bf7e4ae5b443dd17833ff9a4&days=${days}`,
+    { manual: true }
+  );
+
+  useEffect(() => {
+    if (days && lat && lon) {
+      fetchBreezoData();
+    }
+  }, [days, lat, lon]);
   return (
     <>
       <section className="InformationCards">

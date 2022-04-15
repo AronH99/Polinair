@@ -11,7 +11,6 @@ const Map = ({ lat, lon, children, choosetype }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [zoom, setZoom] = useState(9);
-  const [updateMapLayout, setUpdateMapLayout] = useState(false);
 
   //initiates map
   useEffect(() => {
@@ -21,23 +20,16 @@ const Map = ({ lat, lon, children, choosetype }) => {
       style: "mapbox://styles/mapbox/streets-v11",
       center: [lon, lat],
       zoom: zoom,
-      dragPan: false,
       scrollZoom: { around: "center" },
       touchZoomRotate: { around: "center" },
       maxZoom: 14,
       minZoom: 5,
     });
-    if (map?.current) {
-      map?.current.keyboard.disable();
-      map?.current.dragRotate.disable();
-      map?.current.dragPan.disable();
-      map?.current.doubleClickZoom.disable();
-    }
   }, [lat, lon]);
 
   //pans to current location again
   useEffect(() => {
-    if ((map?.current, lon, lat)) {
+    if (map?.current && lon && lat) {
       map?.current.easeTo({
         center: [lon, lat],
         zoom: zoom,
@@ -120,29 +112,22 @@ const Map = ({ lat, lon, children, choosetype }) => {
   };
 
   //initial load
-  useEffect(() => {
+  /* useEffect(() => {
     map?.current.on("load", function () {
       addRasterSource();
       addRasterLayer();
     });
-  }, []);
+  }, []); */
 
   //remove and reload of layout
   useEffect(() => {
     if (map?.current.getLayer("breezometer-tiles")) {
       map?.current.removeLayer("breezometer-tiles");
-    }
-    if (map?.current.getSource("breezometer-tiles")) {
       map?.current.removeSource("breezometer-tiles");
-      setUpdateMapLayout(true);
+      addRasterSource();
+      addRasterLayer();
     }
   }, [choosetype]);
-
-  useEffect(() => {
-    updateMapLayout && addRasterSource();
-    updateMapLayout && addRasterLayer();
-    setUpdateMapLayout(false);
-  }, [updateMapLayout]);
 
   return (
     <div className="component-container">
