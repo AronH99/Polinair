@@ -38,7 +38,7 @@ const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
       setLon(4.3517103);
       setLat(50.8503396);
       setSearchresults("Brussel");
-      search?.current.setPlaceholder("Zoeken");
+      search?.current.setPlaceholder("Search");
       //localstorage
       const json = JSON.stringify("");
       const json2 = JSON.stringify("");
