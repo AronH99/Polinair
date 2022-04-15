@@ -19,9 +19,11 @@ const GeoLocation = ({
       alert("Your browser does not support Geolocation");
     }
     if (!isGeolocationEnabled) {
-      alert("This application needs your Location to function properly");
+      alert("Location is disabled");
+      setLon(4.3517103);
+      setLat(50.8503396);
     }
-    if (coords) {
+    if (coords || isGeolocationEnabled) {
       setLat(coords.latitude);
       setLon(coords.longitude);
       setSearchresults("Your Location's Data");
