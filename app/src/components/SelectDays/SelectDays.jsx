@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { setLocalStorageData } from "../../hooks/LocalStorage";
+import { setLocalStorageData } from "../../Hooks/LocalStorage";
 import "./selectdays.scss";
 
 const SelectDays = ({ setDays, days }) => {
-  const [counter, setCounter] = useState();
-
   useEffect(() => {
     setLocalStorageData("days", days);
   }, [days]);
@@ -16,13 +14,12 @@ const SelectDays = ({ setDays, days }) => {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              setDays(counter);
             }}
           >
             <div className="flexdaysbuttons">
               <button
                 onClick={() => {
-                  setCounter(1);
+                  setDays(1);
                 }}
                 className={`interfacebutton${days === 1 ? "--active" : ""}`}
               >
@@ -30,7 +27,7 @@ const SelectDays = ({ setDays, days }) => {
               </button>
               <button
                 onClick={() => {
-                  setCounter(2);
+                  setDays(2);
                 }}
                 className={`interfacebutton${days === 2 ? "--active" : ""}`}
               >
@@ -38,7 +35,7 @@ const SelectDays = ({ setDays, days }) => {
               </button>
               <button
                 onClick={() => {
-                  setCounter(3);
+                  setDays(3);
                 }}
                 className={`interfacebutton${days === 3 ? "--active" : ""}`}
               >

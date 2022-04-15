@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import {
   setLocalStorageData,
   getLocalStorageData,
-} from "../../hooks/LocalStorage";
+} from "../../Hooks/LocalStorage";
 
 const GeoLocation = ({
   isGeolocationAvailable,
@@ -23,7 +23,7 @@ const GeoLocation = ({
       setLon(4.3517103);
       setLat(50.8503396);
     }
-    if (coords || isGeolocationEnabled) {
+    if (coords) {
       setLat(coords.latitude);
       setLon(coords.longitude);
       setSearchresults("Your Location's Data");
