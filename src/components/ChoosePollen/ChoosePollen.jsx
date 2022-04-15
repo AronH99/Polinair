@@ -1,10 +1,10 @@
 import "./choosepollen.scss";
 import { React, useEffect } from "react";
-import { setLocalStorageData } from "../../hooks/LocalStorage";
+import { setLocalChooseType } from "../../HelperFunctions/LocalStorage";
 
 const ChoosePollen = ({ choosetype, setChooseType }) => {
   useEffect(() => {
-    setLocalStorageData("choosetype", choosetype);
+    setLocalChooseType(choosetype);
   }, [choosetype]);
 
   return (

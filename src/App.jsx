@@ -1,4 +1,4 @@
-import { useState, useEffect, React } from "react";
+import { useState, React } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import SelectDays from "./components/SelectDays/SelectDays";
 import InformationCards from "./components/InformationCards/InformationCards";
@@ -7,20 +7,17 @@ import MapboxSearchField from "./components/MapboxSearchField/MapboxSearchField"
 import SelectMethodLocation from "./components/SelectMethodLocation/SelectMethodLocation";
 import Map from "./components/Map/Map";
 import ChoosePollen from "./components/ChoosePollen/ChoosePollen";
-import { getLocalStorageData } from "./Hooks/LocalStorage";
+import {
+  getDays,
+  getChooseType,
+  getLocationBool,
+} from "./HelperFunctions/LocalStorage";
 import "./style.scss";
 
-/* const apiuitbreiding =
-  "https://api.breezometer.com/pollen/v2/forecast/daily?lat=48.857456&lon=2.354611&days=3&key=1543d470bf7e4ae5b443dd17833ff9a4&features=types_information,plants_information"; */
-
 const App = () => {
-  const [days, setDays] = useState(() => getLocalStorageData("days") || 1);
-  const [choosetype, setChooseType] = useState(
-    () => getLocalStorageData("choosetype") || "tree"
-  );
-  const [locationbool, setLocationbool] = useState(
-    () => getLocalStorageData("locationbool") || true
-  );
+  const [days, setDays] = useState(getDays() || 1);
+  const [choosetype, setChooseType] = useState(getChooseType() || "tree");
+  const [locationbool, setLocationbool] = useState(getLocationBool() || true);
   const [lat, setLat] = useState(50.8503396);
   const [lon, setLon] = useState(4.3517103);
   const [searchresults, setSearchresults] = useState();
@@ -54,14 +51,14 @@ const App = () => {
       <Map lat={lat} lon={lon} choosetype={choosetype}>
         <ChoosePollen setChooseType={setChooseType} choosetype={choosetype} />
       </Map>
-      {/*   <InformationCards
+      <InformationCards
         lat={lat}
         lon={lon}
         searchresults={searchresults}
         days={days}
       >
         <SelectDays setDays={setDays} days={days} />
-      </InformationCards> */}
+      </InformationCards>
     </>
   );
 };

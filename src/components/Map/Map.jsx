@@ -112,12 +112,12 @@ const Map = ({ lat, lon, children, choosetype }) => {
   };
 
   //initial load
-  /* useEffect(() => {
+  useEffect(() => {
     map?.current.on("load", function () {
       addRasterSource();
       addRasterLayer();
     });
-  }, []); */
+  }, []);
 
   //remove and reload of layout
   useEffect(() => {

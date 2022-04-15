@@ -1,9 +1,10 @@
 import { React, useState, useEffect } from "react";
 import "./selectmethodlocation.scss";
 import {
-  setLocalStorageData,
-  getLocalStorageData,
-} from "../../hooks/LocalStorage";
+  getMethodButton,
+  setLocalMethodButton,
+  setLocalLocationBool,
+} from "../../HelperFunctions/LocalStorage";
 
 const SelectMethodLocation = ({
   setLocationbool,
@@ -13,11 +14,11 @@ const SelectMethodLocation = ({
   locationbool,
 }) => {
   const [methodbutton, setMethodbutton] = useState(
-    () => getLocalStorageData("methodbutton") ?? "Your Location"
+    getMethodButton() || "Your Location"
   );
   useEffect(() => {
-    setLocalStorageData("methodbutton", methodbutton);
-    setLocalStorageData("locationbool", locationbool);
+    setLocalMethodButton(methodbutton);
+    setLocalLocationBool(locationbool);
   }, [methodbutton, locationbool]);
 
   return (
