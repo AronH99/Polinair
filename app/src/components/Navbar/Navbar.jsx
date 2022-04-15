@@ -6,7 +6,7 @@ const Navbar = () => {
     <>
       <section className="Navbar">
         <h1>
-          PolInAir
+          Polinair
           <img src="./src/svg/pollen.svg" alt="SpringFlower" />
         </h1>
       </section>
