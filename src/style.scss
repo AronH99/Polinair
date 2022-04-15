@@ -55,7 +55,11 @@ margin:0;
         height:40px;
       }
       &--icon{
-        top:10px;
+        top:11px;
+      
+      }
+      &--button{
+        top:9px;
       }
     }
   }
@@ -71,6 +75,12 @@ margin:0;
       line-height: 20px;
       &--input{
         height:50px;
+      }
+      &--icon{
+        top:14px;
+      }
+      &--button{
+        top:7px;
       }
     }
   }

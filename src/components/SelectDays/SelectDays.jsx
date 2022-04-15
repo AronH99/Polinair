@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { setLocalStorageData } from "../../Hooks/LocalStorage";
+import React, { useEffect } from "react";
+import { setLocalDays } from "../../HelperFunctions/LocalStorage";
 import "./selectdays.scss";
 
 const SelectDays = ({ setDays, days }) => {
   useEffect(() => {
-    setLocalStorageData("days", days);
+    setLocalDays(days);
   }, [days]);
 
   return (

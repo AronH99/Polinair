@@ -4,9 +4,13 @@ import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import {
-  setLocalStorageData,
-  getLocalStorageData,
-} from "../../Hooks/LocalStorage";
+  getLatLon,
+  setLatLon,
+  getPlaceName,
+  setLocalPlaceName,
+  removeLatLon,
+  removePlaceName,
+} from "../../HelperFunctions/LocalStorage";
 
 const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
   mapboxgl.accessToken =
@@ -28,10 +32,8 @@ const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
       setLat(e.result?.center[1]);
       setSearchresults(e.result?.place_name);
       //localstorage
-      setLocalStorageData("lon", e.result?.center[0]);
-      setLocalStorageData("lat", e.result?.center[1]);
-      setLocalStorageData("placename", e.result?.place_name);
-      //pins maken
+      setLatLon(e.result?.center[0], e.result?.center[1]);
+      setLocalPlaceName(e.result?.place_name);
     });
 
     search?.current.on("clear", () => {
@@ -40,18 +42,15 @@ const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
       setSearchresults("Brussel");
       search?.current.setPlaceholder("Search");
       //localstorage
-      const json = JSON.stringify("");
-      localStorage.setItem("lon", json);
-      localStorage.setItem("lat", json);
-      localStorage.setItem("placename", json);
-      /*       localStorage.removeItem() */
+      removeLatLon();
+      removePlaceName();
     });
   }, []);
 
   useEffect(() => {
-    const lon = getLocalStorageData("lon");
-    const lat = getLocalStorageData("lat");
-    const placename = getLocalStorageData("placename");
+    const lat = getLatLon()[0];
+    const lon = getLatLon()[1];
+    const placename = getPlaceName();
     if (lon || lat || placename) {
       setLon(lon);
       setLat(lat);
