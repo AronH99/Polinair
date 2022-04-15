@@ -14,7 +14,7 @@ const SelectMethodLocation = ({
   locationbool,
 }) => {
   const [methodbutton, setMethodbutton] = useState(
-    getMethodButton() || "Your Location"
+    getMethodButton() ?? "Your Location"
   );
   useEffect(() => {
     setLocalMethodButton(methodbutton);

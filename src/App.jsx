@@ -15,9 +15,9 @@ import {
 import "./style.scss";
 
 const App = () => {
-  const [days, setDays] = useState(getDays() || 1);
-  const [choosetype, setChooseType] = useState(getChooseType() || "tree");
-  const [locationbool, setLocationbool] = useState(getLocationBool() || true);
+  const [days, setDays] = useState(getDays() ?? 1);
+  const [choosetype, setChooseType] = useState(getChooseType() ?? "tree");
+  const [locationbool, setLocationbool] = useState(getLocationBool() ?? true);
   const [lat, setLat] = useState(50.8503396);
   const [lon, setLon] = useState(4.3517103);
   const [searchresults, setSearchresults] = useState();
