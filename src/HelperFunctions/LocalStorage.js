@@ -86,6 +86,11 @@ const setGeoLatGeoLon = (geolon, geolat) => {
   setLocalStorageData(GEOLAT, geolat);
 };
 
+const removeGeoLatGeoLon = () => {
+  localStorage.removeItem(GEOLON);
+  localStorage.removeItem(GEOLAT);
+};
+
 export {
   getChooseType,
   setLocalChooseType,
@@ -103,4 +108,5 @@ export {
   removeLatLon,
   getGeoLatGeoLon,
   setGeoLatGeoLon,
+  removeGeoLatGeoLon,
 };
