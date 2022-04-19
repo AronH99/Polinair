@@ -51,7 +51,7 @@ const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
     const lat = getLatLon()[0];
     const lon = getLatLon()[1];
     const placename = getPlaceName();
-    if (lon || lat || placename) {
+    if (lon && lat && placename) {
       setLon(lon);
       setLat(lat);
       setSearchresults(placename);
