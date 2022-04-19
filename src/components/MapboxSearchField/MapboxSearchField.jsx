@@ -26,6 +26,7 @@ const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
     });
 
     search?.current.addTo("#geocoder-container");
+    search?.current.setPlaceholder("Search");
 
     search?.current.on("result", (e) => {
       setLon(e.result?.center[0]);
@@ -37,9 +38,6 @@ const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
     });
 
     search?.current.on("clear", () => {
-      setLon(4.3517103);
-      setLat(50.8503396);
-      setSearchresults("Brussel");
       search?.current.setPlaceholder("Search");
       //localstorage
       removeLatLon();
