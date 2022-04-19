@@ -21,19 +21,17 @@ const GeoLocation = ({
     }
     if (!isGeolocationEnabled) {
       alert("Location is disabled");
-      setLon(4.3517103);
-      setLat(50.8503396);
     }
-    if (coords) {
+    if (coords && isGeolocationEnabled && isGeolocationAvailable) {
       setLat(coords.latitude);
       setLon(coords.longitude);
       setSearchresults("Your Location's Data");
     }
-  }, [coords, toggleyourlocation]);
+  }, [coords, toggleyourlocation, isGeolocationEnabled]);
 
   /*   useEffect(() => {
     if (coords) {
-      setGeoLatGeoLon(coords.latitude, coords.longitude);
+      setGeoLatGeoLon(coords.longtitude, coords.latitude);
     }
   }, [coords]);
 

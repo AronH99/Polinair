@@ -58,7 +58,7 @@ const Map = ({ lat, lon, children, choosetype }) => {
                   type: "Feature",
                   geometry: {
                     type: "Point",
-                    coordinates: [4.3517103, 50.8503396],
+                    coordinates: [lon, lat],
                   },
                   properties: {
                     title: "Brussel",
