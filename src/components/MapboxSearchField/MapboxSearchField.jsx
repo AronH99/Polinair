@@ -19,10 +19,10 @@ const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
   const search = useRef();
 
   useEffect(() => {
-    if (search.current) return;
     search.current = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       types: "country,region,place,postcode,locality,neighborhood",
+      marker: false,
     });
 
     search?.current.addTo("#geocoder-container");

@@ -1,4 +1,4 @@
-import { useState, React, useEffect } from "react";
+import { useState, React, useEffect, useRef } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import SelectDays from "./components/SelectDays/SelectDays";
 import InformationCards from "./components/InformationCards/InformationCards";
@@ -22,6 +22,7 @@ const App = ({ isGeolocationAvailable, isGeolocationEnabled }) => {
   const [locationbool, setLocationbool] = useState(getLocationBool() ?? true);
   const [lat, setLat] = useState(50.8503396);
   const [lon, setLon] = useState(4.3517103);
+
   useEffect(() => {
     if (!isGeolocationAvailable && !isGeolocationEnabled && locationbool) {
       setLon(4.3517103);
@@ -57,14 +58,14 @@ const App = ({ isGeolocationAvailable, isGeolocationEnabled }) => {
       <Map lat={lat} lon={lon} choosetype={choosetype}>
         <ChoosePollen setChooseType={setChooseType} choosetype={choosetype} />
       </Map>
-      {/* <InformationCards
+      <InformationCards
         lat={lat}
         lon={lon}
         searchresults={searchresults}
         days={days}
       >
         <SelectDays setDays={setDays} days={days} />
-      </InformationCards> */}
+      </InformationCards>
     </>
   );
 };

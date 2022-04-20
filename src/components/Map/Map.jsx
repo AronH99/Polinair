@@ -1,7 +1,6 @@
 import "./map.scss";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
-
 import React, { useRef, useEffect, useState } from "react";
 
 mapboxgl.accessToken =
@@ -11,6 +10,7 @@ const Map = ({ lat, lon, children, choosetype }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [zoom, setZoom] = useState(9);
+  const marker = useRef(null);
 
   //initiates map
   useEffect(() => {
@@ -40,49 +40,14 @@ const Map = ({ lat, lon, children, choosetype }) => {
     }
   }, [lon, lat]);
 
-  //initial pin
   useEffect(() => {
-    if (!map.current) return;
-    map?.current.on("load", () => {
-      map?.current.loadImage(
-        "https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png",
-        (error, image) => {
-          if (error) throw error;
-          map?.current.addImage("custom-marker", image);
-          map?.current.addSource("points", {
-            type: "geojson",
-            data: {
-              type: "FeatureCollection",
-              features: [
-                {
-                  type: "Feature",
-                  geometry: {
-                    type: "Point",
-                    coordinates: [lon, lat],
-                  },
-                  properties: {
-                    title: "Brussel",
-                  },
-                },
-              ],
-            },
-          });
-          map?.current.addLayer({
-            id: "points",
-            type: "symbol",
-            source: "points",
-            layout: {
-              "icon-image": "custom-marker",
-              "text-field": ["get", "title"],
-              "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-              "text-offset": [0, 1.25],
-              "text-anchor": "top",
-            },
-          });
-        }
-      );
-    });
-  }, []);
+    if (marker?.current) {
+      marker?.current.remove();
+    }
+    marker.current = new mapboxgl.Marker()
+      .setLngLat([lon, lat])
+      .addTo(map?.current);
+  }, [lon, lat]);
 
   const addRasterLayer = () => {
     map?.current.addLayer(
