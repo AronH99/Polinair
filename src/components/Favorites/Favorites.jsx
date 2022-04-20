@@ -13,7 +13,7 @@ const Favorites = ({ searchresults }) => {
   useEffect(() => {
     setSearchList(
       [...new Set(searchList).add(searchresults)].filter(
-        (item) => item !== "Your Location's Data"
+        (item) => item !== "Your Location's Data" && item !== ""
       )
     );
     setFavorites(searchList);
