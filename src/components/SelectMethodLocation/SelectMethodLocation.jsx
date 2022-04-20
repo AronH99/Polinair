@@ -35,7 +35,7 @@ const SelectMethodLocation = ({
             value="Your Location"
             onClick={(e) => {
               setMethodbutton(e.target.value);
-              setSearchresults();
+              setSearchresults("");
               setToggleYourLocation(!toggleyourlocation);
             }}
             className={`radiobutton${
