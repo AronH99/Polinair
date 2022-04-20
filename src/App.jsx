@@ -7,6 +7,7 @@ import MapboxSearchField from "./components/MapboxSearchField/MapboxSearchField"
 import SelectMethodLocation from "./components/SelectMethodLocation/SelectMethodLocation";
 import Map from "./components/Map/Map";
 import ChoosePollen from "./components/ChoosePollen/ChoosePollen";
+import Favorites from "./components/Favorites/Favorites";
 import {
   getDays,
   getChooseType,
@@ -33,6 +34,7 @@ const App = ({ isGeolocationAvailable, isGeolocationEnabled }) => {
   return (
     <>
       <Navbar />
+      <Favorites searchresults={searchresults} />
       {locationbool && (
         <GeoLocation
           setLat={setLat}
@@ -43,10 +45,10 @@ const App = ({ isGeolocationAvailable, isGeolocationEnabled }) => {
       )}
       <SelectMethodLocation
         setLocationbool={setLocationbool}
-        setSearchresults={setSearchresults}
         toggleyourlocation={toggleyourlocation}
         setToggleYourLocation={setToggleYourLocation}
         locationbool={locationbool}
+        setSearchresults={setSearchresults}
       />
       {!locationbool && (
         <MapboxSearchField
