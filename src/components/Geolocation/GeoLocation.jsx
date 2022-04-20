@@ -5,6 +5,7 @@ import { useEffect } from "react";
   setGeoLatGeoLon,
   removeGeoLatGeoLon,
 } from "../../HelperFunctions/LocalStorage"; */
+import { setAlert, getAlert } from "../../HelperFunctions/LocalStorage";
 
 const GeoLocation = ({
   isGeolocationAvailable,
@@ -17,10 +18,18 @@ const GeoLocation = ({
 }) => {
   useEffect(() => {
     if (!isGeolocationAvailable) {
-      alert("Your browser does not support Geolocation");
+      const checkAlert = getAlert();
+      if (checkAlert !== "yes") {
+        alert("Your browser does not support Geolocation");
+        setAlert("yes");
+      }
     }
     if (!isGeolocationEnabled) {
-      alert("Location is disabled");
+      const checkAlert = getAlert();
+      if (checkAlert !== "yes") {
+        alert("Location is disabled");
+        setAlert("yes");
+      }
     }
     if (coords && isGeolocationEnabled && isGeolocationAvailable) {
       setLat(coords.latitude);

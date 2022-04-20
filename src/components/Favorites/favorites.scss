@@ -1,0 +1,14 @@
+.list{
+display: flex;
+flex-direction: column;
+padding-left: 1rem;
+padding-right: 1rem;
+line-height:2;
+&-item{
+    color:#E63946;
+    font-size: 15px;
+    text-decoration-line: underline;
+    cursor: pointer;
+    }
+}     
+

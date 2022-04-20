@@ -7,6 +7,8 @@ const LOCATIONBOOL = "locationbool";
 const DAYS = "days";
 const METHODBUTTON = "methodbutton";
 const CHOOSETYPE = "choosetype";
+const FAVORITES = "favorites";
+const ALERT = "alert";
 
 const getLocalStorageData = (string) => {
   return JSON.parse(localStorage.getItem(string));
@@ -91,6 +93,26 @@ const removeGeoLatGeoLon = () => {
   localStorage.removeItem(GEOLAT);
 };
 
+const getFavorites = () => {
+  return getLocalStorageData(FAVORITES);
+};
+
+const setFavorites = (arr) => {
+  setLocalStorageData(FAVORITES, arr);
+};
+
+const removeFavorites = () => {
+  localStorage.removeItem(FAVORITES);
+};
+
+const getAlert = () => {
+  return getLocalStorageData(ALERT);
+};
+
+const setAlert = (str) => {
+  setLocalStorageData(ALERT, str);
+};
+
 export {
   getChooseType,
   setLocalChooseType,
@@ -109,4 +131,9 @@ export {
   getGeoLatGeoLon,
   setGeoLatGeoLon,
   removeGeoLatGeoLon,
+  getFavorites,
+  setFavorites,
+  removeFavorites,
+  getAlert,
+  setAlert,
 };

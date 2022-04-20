@@ -8,10 +8,10 @@ import {
 
 const SelectMethodLocation = ({
   setLocationbool,
-  setSearchresults,
   toggleyourlocation,
   setToggleYourLocation,
   locationbool,
+  setSearchresults,
 }) => {
   const [methodbutton, setMethodbutton] = useState(
     getMethodButton() ?? "Your Location"
@@ -35,7 +35,7 @@ const SelectMethodLocation = ({
             value="Your Location"
             onClick={(e) => {
               setMethodbutton(e.target.value);
-              setSearchresults("");
+              setSearchresults();
               setToggleYourLocation(!toggleyourlocation);
             }}
             className={`radiobutton${
