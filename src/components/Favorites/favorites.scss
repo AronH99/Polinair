@@ -4,11 +4,28 @@ flex-direction: column;
 padding-left: 1rem;
 padding-right: 1rem;
 line-height:2;
+overflow: hidden;
+border: 2px solid #457B9D;
+border-radius: 5px;
+font-size: 15px;
+font-weight: bold;
+h1{
+color:#457B9D;
+font-size: 20px;
+font-weight: bold;
+}
 &-item{
-    color:#E63946;
-    font-size: 15px;
-    text-decoration-line: underline;
-    cursor: pointer;
+    display:flex;
+    &__span{
+        cursor:pointer;
+        color:#457B9D;
+        font-size: 15px;
+        font-weight: bold;
+        &:hover{
+            background-color: #A8DADC;
+            border-radius: 5px;
+        }
+      }
     }
 }     
 

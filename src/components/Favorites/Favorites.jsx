@@ -29,9 +29,10 @@ const Favorites = ({ searchresults }) => {
   return (
     <>
       <ul className="list">
+        <h1>Favorites</h1>
         {searchList.map((item) => (
           <li className="list-item" key={nanoid(5)}>
-            {item}
+            <span className="list-item__span">{item}</span>
           </li>
         ))}
       </ul>
