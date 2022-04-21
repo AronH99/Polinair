@@ -30,6 +30,15 @@ font-weight: bold;
             border-radius: 5px;
         }
       }
+    &__trashcan{
+     width:20px;
+     height:auto;
+     margin-left: 1rem;
+     cursor: pointer;
+     &:hover{
+        background-color: #A8DADC;
+     }
+    }
     }
 }     
 

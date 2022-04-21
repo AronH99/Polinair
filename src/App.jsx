@@ -15,7 +15,7 @@ import {
 } from "./HelperFunctions/LocalStorage";
 import "./style.scss";
 
-const App = ({ isGeolocationAvailable, isGeolocationEnabled }) => {
+const App = () => {
   const [days, setDays] = useState(getDays() ?? 1);
   const [choosetype, setChooseType] = useState(getChooseType() ?? "tree");
   const [searchresults, setSearchresults] = useState();
@@ -24,22 +24,16 @@ const App = ({ isGeolocationAvailable, isGeolocationEnabled }) => {
   const [lat, setLat] = useState(50.8503396);
   const [lon, setLon] = useState(4.3517103);
 
-  useEffect(() => {
-    if (!isGeolocationAvailable && !isGeolocationEnabled && locationbool) {
-      setLon(4.3517103);
-      setLat(50.8503396);
-    }
-  }, [locationbool]);
-
   return (
     <>
       <Navbar />
-      {locationbool && (
+      {locationbool === true && (
         <GeoLocation
           setLat={setLat}
           setLon={setLon}
           toggleyourlocation={toggleyourlocation}
           setSearchresults={setSearchresults}
+          locationbool={locationbool}
         />
       )}
       <SelectMethodLocation
@@ -49,27 +43,30 @@ const App = ({ isGeolocationAvailable, isGeolocationEnabled }) => {
         locationbool={locationbool}
         setSearchresults={setSearchresults}
       />
-      {!locationbool && (
+      {locationbool === false && (
         <MapboxSearchField
           setLat={setLat}
           setLon={setLon}
           setSearchresults={setSearchresults}
         />
       )}
-      {locationbool === "Favorites" && (
-        <Favorites searchresults={searchresults} />
-      )}
+      {/* <Favorites
+        searchresults={searchresults}
+        locationbool={locationbool}
+        setLat={setLat}
+        setLon={setLon}
+      /> */}
       <Map lat={lat} lon={lon} choosetype={choosetype}>
         <ChoosePollen setChooseType={setChooseType} choosetype={choosetype} />
       </Map>
-      {/* <InformationCards
+      <InformationCards
         lat={lat}
         lon={lon}
         searchresults={searchresults}
         days={days}
       >
         <SelectDays setDays={setDays} days={days} />
-      </InformationCards> */}
+      </InformationCards>
     </>
   );
 };
