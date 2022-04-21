@@ -63,7 +63,7 @@ const Favorites = ({ searchresults, locationbool, setLat, setLon }) => {
               <img
                 className="list-item__trashcan"
                 src={trashcan}
-                alt="trashcan"
+                alt=""
                 onClick={() => {
                   setSearchList(searchList.filter((x) => x !== item));
                   setFavorites(searchList.filter((x) => x !== item));
