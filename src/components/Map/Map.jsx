@@ -49,7 +49,7 @@ const Map = ({ lat, lon, children, choosetype }) => {
       .addTo(map?.current);
   }, [lon, lat]);
 
-  /* const addRasterLayer = () => {
+  const addRasterLayer = () => {
     map?.current.addLayer(
       {
         id: "breezometer-tiles",
@@ -92,7 +92,7 @@ const Map = ({ lat, lon, children, choosetype }) => {
       addRasterSource();
       addRasterLayer();
     }
-  }, [choosetype]); */
+  }, [choosetype]);
 
   return (
     <div className="component-container">
