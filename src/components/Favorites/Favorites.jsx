@@ -5,7 +5,13 @@ import { getFavorites, setFavorites } from "../../HelperFunctions/LocalStorage";
 import "./favorites.scss";
 import trashcan from "../../svg/trashcan.svg";
 
-const Favorites = ({ searchresults, locationbool, setLat, setLon }) => {
+const Favorites = ({
+  searchresults,
+  locationbool,
+  setLat,
+  setLon,
+  setSearchresults,
+}) => {
   const [searchList, setSearchList] = useState(getFavorites() ?? []);
   const [stringdata, setStringData] = useState();
 
@@ -55,7 +61,9 @@ const Favorites = ({ searchresults, locationbool, setLat, setLon }) => {
                   setStringData(
                     searchList.filter((x) => x === item).toString()
                   );
-                  console.log(searchList.filter((x) => x === item).toString());
+                  setSearchresults(
+                    searchList.filter((x) => x === item).toString()
+                  );
                 }}
               >
                 {item}
