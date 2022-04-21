@@ -1,10 +1,5 @@
 import { geolocated } from "react-geolocated";
 import { useEffect } from "react";
-/* import {
-  getGeoLatGeoLon,
-  setGeoLatGeoLon,
-  removeGeoLatGeoLon,
-} from "../../HelperFunctions/LocalStorage"; */
 import { setAlert, getAlert } from "../../HelperFunctions/LocalStorage";
 
 const GeoLocation = ({
@@ -37,22 +32,6 @@ const GeoLocation = ({
       setSearchresults("Your Location's Data");
     }
   }, [coords, toggleyourlocation, isGeolocationEnabled]);
-
-  /*   useEffect(() => {
-    if (coords) {
-      setGeoLatGeoLon(coords.longtitude, coords.latitude);
-    }
-  }, [coords]);
-
-  useEffect(() => {
-    const geolat = getGeoLatGeoLon()[0];
-    const geolon = getGeoLatGeoLon()[1];
-    if (geolat && geolon) {
-      setLat(geolat);
-      setLon(geolon);
-      setSearchresults("Your Location's Data");
-    }
-  }, []); */
 
   return null;
 };

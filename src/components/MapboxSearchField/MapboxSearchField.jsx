@@ -32,14 +32,14 @@ const MapboxSearchField = ({ setLat, setLon, setSearchresults }) => {
       setLon(e.result?.center[0]);
       setLat(e.result?.center[1]);
       setSearchresults(e.result?.place_name);
-      //localstorage
+
       setLatLon(e.result?.center[0], e.result?.center[1]);
       setLocalPlaceName(e.result?.place_name);
     });
 
     search?.current.on("clear", () => {
       search?.current.setPlaceholder("Search");
-      //localstorage
+
       removeLatLon();
       removePlaceName();
     });

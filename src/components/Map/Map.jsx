@@ -12,7 +12,6 @@ const Map = ({ lat, lon, children, choosetype }) => {
   const [zoom, setZoom] = useState(9);
   const marker = useRef(null);
 
-  //initiates map
   useEffect(() => {
     if (map.current) return;
     map.current = new mapboxgl.Map({
@@ -27,7 +26,6 @@ const Map = ({ lat, lon, children, choosetype }) => {
     });
   }, [lat, lon]);
 
-  //pans to current location again
   useEffect(() => {
     if (map?.current && lon && lat) {
       map?.current.easeTo({
@@ -76,7 +74,6 @@ const Map = ({ lat, lon, children, choosetype }) => {
     });
   };
 
-  //initial load
   useEffect(() => {
     map?.current.on("load", function () {
       addRasterSource();
@@ -84,7 +81,6 @@ const Map = ({ lat, lon, children, choosetype }) => {
     });
   }, []);
 
-  //remove and reload of layout
   useEffect(() => {
     if (map?.current.getLayer("breezometer-tiles")) {
       map?.current.removeLayer("breezometer-tiles");

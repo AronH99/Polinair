@@ -50,12 +50,12 @@ const App = () => {
           setSearchresults={setSearchresults}
         />
       )}
-      {/* <Favorites
+      <Favorites
         searchresults={searchresults}
         locationbool={locationbool}
         setLat={setLat}
         setLon={setLon}
-      /> */}
+      />
       <Map lat={lat} lon={lon} choosetype={choosetype}>
         <ChoosePollen setChooseType={setChooseType} choosetype={choosetype} />
       </Map>
