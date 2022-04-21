@@ -34,7 +34,6 @@ const App = ({ isGeolocationAvailable, isGeolocationEnabled }) => {
   return (
     <>
       <Navbar />
-      <Favorites searchresults={searchresults} />
       {locationbool && (
         <GeoLocation
           setLat={setLat}
@@ -57,17 +56,20 @@ const App = ({ isGeolocationAvailable, isGeolocationEnabled }) => {
           setSearchresults={setSearchresults}
         />
       )}
+      {locationbool === "Favorites" && (
+        <Favorites searchresults={searchresults} />
+      )}
       <Map lat={lat} lon={lon} choosetype={choosetype}>
         <ChoosePollen setChooseType={setChooseType} choosetype={choosetype} />
       </Map>
-      <InformationCards
+      {/* <InformationCards
         lat={lat}
         lon={lon}
         searchresults={searchresults}
         days={days}
       >
         <SelectDays setDays={setDays} days={days} />
-      </InformationCards>
+      </InformationCards> */}
     </>
   );
 };

@@ -28,7 +28,13 @@ const SelectMethodLocation = ({
           className="radiobuttonform"
           onSubmit={(e) => {
             e.preventDefault();
-            setLocationbool(methodbutton === "Your Location");
+            if (methodbutton === "Your Location") {
+              setLocationbool(true);
+            } else if (methodbutton === "MapLocation") {
+              setLocationbool(false);
+            } else if (methodbutton === "Favorites") {
+              setLocationbool("Favorites");
+            }
           }}
         >
           <button
@@ -54,6 +60,17 @@ const SelectMethodLocation = ({
             }`}
           >
             Use Map Location
+          </button>
+          <button
+            value="Favorites"
+            onClick={(e) => {
+              setMethodbutton(e.target.value);
+            }}
+            className={`radiobutton${
+              methodbutton === "Favorites" ? "--active" : ""
+            }`}
+          >
+            Favorites
           </button>
         </form>
       </div>

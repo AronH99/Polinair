@@ -53,7 +53,7 @@ margin:0;
     .mapboxgl-ctrl-geocoder{
       width:50%;
       max-width:none;
-      font-size:15px;
+      font-size:18px;
       line-height: 20px;
       &--input{
         height:40px;
@@ -63,7 +63,7 @@ margin:0;
       
       }
       &--button{
-        top:9px;
+        top:7px;
       }
     }
   }
@@ -75,17 +75,32 @@ margin:0;
     .mapboxgl-ctrl-geocoder{
       width:100%;
       max-width:none;
-      font-size:15px;
+      font-size:18px;
       line-height: 20px;
       &--input{
-        height:50px;
+        height:40px;
       }
       &--icon{
-        top:14px;
+        top:10px;
       }
       &--button{
-        top:7px;
+        top:0px;
       }
     }
   }
+}
+
+@media(max-width:335px){
+  .backgroundradiobutton{
+  .radiobuttonform{
+    flex-wrap:nowrap;
+    flex-direction: column;
+    .radiobutton{
+      width:100%;
+      &--active{
+        width:100%;
+      }
+    }
+  }
+}
 }

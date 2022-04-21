@@ -6,10 +6,12 @@
     padding-top:0;
     padding-bottom: 0.5rem;
     position: relative;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     .mapboxgl-ctrl-geocoder--input{
      background-color: #1D3557;
      color: #F1FAEE !important;
+     height:40px;
+     font-size:18px;
      &::placeholder{
          color: white;
          opacity:0.5;
@@ -21,12 +23,14 @@
     .mapboxgl-ctrl-geocoder--icon {
         fill: #F1FAEE;
         opacity:0.5;
+        top:11px;
         &-close{
             background-color:#1D3557;
         }
     }
     .mapboxgl-ctrl-geocoder--button{
-        background-color: #1D3557 ;
+        background-color: #1D3557;
+        margin-top:2px;
     }
     .mapboxgl-ctrl-geocoder{
         min-width: 200px;
