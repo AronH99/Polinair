@@ -55,6 +55,7 @@ const App = () => {
         locationbool={locationbool}
         setLat={setLat}
         setLon={setLon}
+        setSearchresults={setSearchresults}
       />
       <Map lat={lat} lon={lon} choosetype={choosetype}>
         <ChoosePollen setChooseType={setChooseType} choosetype={choosetype} />

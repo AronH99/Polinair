@@ -1,6 +1,6 @@
 import "./map.scss";
-import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
 import React, { useRef, useEffect, useState } from "react";
 
 mapboxgl.accessToken =
