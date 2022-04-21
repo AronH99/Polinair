@@ -1,11 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import useAxios from "axios-hooks";
-import {
-  getFavorites,
-  setFavorites,
-  removeFavorites,
-} from "../../HelperFunctions/LocalStorage";
+import { getFavorites, setFavorites } from "../../HelperFunctions/LocalStorage";
 import "./favorites.scss";
 import trashcan from "../../svg/trashcan.svg";
 
@@ -22,10 +18,13 @@ const Favorites = ({ searchresults, locationbool, setLat, setLon }) => {
   useEffect(() => {
     if (stringdata) {
       fetchFavoritePlacesData();
-      placesdata && setLon(placesdata?.features[0].center[0]);
-      placesdata && setLat(placesdata?.features[0].center[1]);
     }
   }, [stringdata]);
+
+  useEffect(() => {
+    placesdata && setLon(placesdata?.features[0].center[0]);
+    placesdata && setLat(placesdata?.features[0].center[1]);
+  }, [JSON.stringify(placesdata)]);
 
   useEffect(() => {
     setSearchList(
@@ -47,7 +46,7 @@ const Favorites = ({ searchresults, locationbool, setLat, setLon }) => {
     locationbool === "Favorites" && (
       <>
         <ul className="list">
-          <h1>Favorites</h1>
+          <h1>History</h1>
           {searchList?.map((item) => (
             <li className="list-item" key={nanoid(5)}>
               <span

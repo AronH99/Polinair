@@ -70,7 +70,7 @@ const SelectMethodLocation = ({
               methodbutton === "Favorites" ? "--active" : ""
             }`}
           >
-            Favorites
+            History
           </button>
         </form>
       </div>
