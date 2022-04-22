@@ -27,6 +27,14 @@ const App = () => {
   return (
     <>
       <Navbar />
+
+      <SelectMethodLocation
+        setLocationbool={setLocationbool}
+        toggleyourlocation={toggleyourlocation}
+        setToggleYourLocation={setToggleYourLocation}
+        locationbool={locationbool}
+        setSearchresults={setSearchresults}
+      />
       {locationbool === true && (
         <GeoLocation
           setLat={setLat}
@@ -36,13 +44,6 @@ const App = () => {
           locationbool={locationbool}
         />
       )}
-      <SelectMethodLocation
-        setLocationbool={setLocationbool}
-        toggleyourlocation={toggleyourlocation}
-        setToggleYourLocation={setToggleYourLocation}
-        locationbool={locationbool}
-        setSearchresults={setSearchresults}
-      />
       {locationbool === false && (
         <MapboxSearchField
           setLat={setLat}

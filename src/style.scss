@@ -111,3 +111,44 @@ margin:0;
     margin-right: 0;
   }
 }
+
+@media (min-width:400px ) {
+  .component-container{
+    .map-container{
+      height: 90vw;
+    }
+  }
+}
+
+
+@media (min-width:550px ) {
+  .component-container{
+    .map-container{
+      height: 70vw;
+    }
+  }
+}
+
+@media (min-width:750px ) {
+  .component-container{
+    .map-container{
+      height: 50vw;
+    }
+  }
+}
+
+@media (min-width:1000px ) {
+  .component-container{
+    .map-container{
+      height: 40vw;
+    }
+  }
+}
+
+@media (min-width:1400px ) {
+  .component-container{
+    .map-container{
+      height: 30vw;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { geolocated } from "react-geolocated";
 import { useEffect } from "react";
+import "./location.scss";
 import { setAlert, getAlert } from "../../HelperFunctions/LocalStorage";
 
 const GeoLocation = ({
@@ -33,7 +34,16 @@ const GeoLocation = ({
     }
   }, [coords, toggleyourlocation, isGeolocationEnabled]);
 
-  return null;
+  return (
+    <>
+      {isGeolocationEnabled && (
+        <h1 className="locationindicator">Location Enabled</h1>
+      )}
+      {!isGeolocationEnabled && (
+        <h1 className="locationindicator">Location Disabled</h1>
+      )}
+    </>
+  );
 };
 
 export default geolocated({
