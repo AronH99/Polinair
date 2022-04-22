@@ -94,19 +94,19 @@ const Map = ({ lat, lon, children, choosetype }) => {
       <div ref={mapContainer} className="map-container" />
       <ul class="legend">
         <li>
-          <span class="green"></span> Very Low
+          <span className="green"></span> Very Low
         </li>
         <li>
-          <span class="lightgreen"></span> Low
+          <span className="lightgreen"></span> Low
         </li>
         <li>
-          <span class="yellow"></span> Moderate
+          <span className="yellow"></span> Moderate
         </li>
         <li>
-          <span class="orange"></span> High
+          <span className="orange"></span> High
         </li>
         <li>
-          <span class="red"></span> Very High
+          <span className="red"></span> Very High
         </li>
       </ul>
       {children}
