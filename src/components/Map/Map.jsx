@@ -92,7 +92,7 @@ const Map = ({ lat, lon, children, choosetype }) => {
   return (
     <div className="component-container">
       <div ref={mapContainer} className="map-container" />
-      <ul class="legend">
+      <ul className="legend">
         <li>
           <span className="green"></span> Very Low
         </li>
