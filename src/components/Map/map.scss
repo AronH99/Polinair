@@ -6,8 +6,31 @@
   align-items: center;
   flex-direction: column-reverse;
 .map-container {
-    height: 400px;
+    height: 100vw;
     width: 80%;
     position: relative;
+  }
 }
+
+.legend{ 
+  padding-top: 0.25rem;
+  padding-left: 1rem;
+  list-style:none;
+  li{
+    float: left;
+    margin-right: 10px;
+    span{
+      border: 1px solid #457B9D;
+      float: left;
+      width:12px;
+      height:12px;
+      margin: 2px;
+    }
+  }
 }
+
+.legend .green { background-color: #009e3a; }
+.legend .lightgreen { background-color: #84cf33; }
+.legend .yellow { background-color: #ffff00 }
+.legend .orange {background-color: #ff8c00;}
+.legend .red { background-color: #ff0000; }
